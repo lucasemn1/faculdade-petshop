@@ -10,6 +10,6 @@ public class SQLException extends Exception {
 
     @Override
     public String toString() {
-        return super.toString() + " | " + this.message;
+        return super.getMessage() + " | " + this.message;
     }
 }
