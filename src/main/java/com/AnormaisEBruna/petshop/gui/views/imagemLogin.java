@@ -1,7 +1,5 @@
-package com.AnormaisEBruna.petshop.gui.views;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+package com.AnormaisEBruna.petshop.gui.views;
+
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -24,14 +22,14 @@ public class imagemLogin extends javax.swing.JPanel {
     public imagemLogin() {
         initComponents();
         try {
-            this.imagemLogin = ImageIO.read(new File("C:\\Users\\bielf\\OneDrive\\Área de Trabalho\\g7\\gabriel\\unipe\\faculdade-petshop\\src\\main\\java\\com\\AnormaisEBruna\\petshop\\gui\\views\\imageLogin.jpeg"));
+            this.imagemLogin = ImageIO.read(new File("com/AnormaisEBruna/petshop/assets/imgs/imageLogin.jpeg"));
         } catch (IOException ex) {
             Logger.getLogger(imagemLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(imagemLogin.getScaledInstance(555, 555, 0),-100,0,null);
+        g.drawImage(imagemLogin.getScaledInstance(555, 555, 0),-10,0,null);
     }
 
     /**

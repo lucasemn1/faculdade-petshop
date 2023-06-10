@@ -1,7 +1,6 @@
 package com.AnormaisEBruna.petshop.gui.components.pages;
 
 import com.AnormaisEBruna.petshop.gui.views.imagemLogin;
-
 import javax.swing.*;
 
 /*

@@ -4,6 +4,7 @@ import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
 import com.AnormaisEBruna.petshop.contracts.gui.UIScreen;
 import com.AnormaisEBruna.petshop.gui.views.*;
 
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -307,6 +308,10 @@ public class InitialPage implements UIScreen {
 
     private void buttonServiceTypeActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        TiposDeServiço layouttypeservice = new TiposDeServiço();
+        mainPanel.removeAll();
+        getsidebar();
+        setconfpanel(layouttypeservice);
     }
 
     private void buttonCuidadorActionPerformed(java.awt.event.ActionEvent evt) {

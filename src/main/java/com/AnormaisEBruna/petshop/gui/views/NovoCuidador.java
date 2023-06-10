@@ -221,7 +221,7 @@ public class NovoCuidador extends JPanel {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton cadastrarCuidador;
-    //private javax.swing.JLabel imageCuidador;
+    private javax.swing.JLabel imageCuidador;
     private javax.swing.JLabel labelBairro;
     private javax.swing.JLabel labelCep;
     private javax.swing.JLabel labelCidade;

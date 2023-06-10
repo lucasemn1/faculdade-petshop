@@ -18,8 +18,7 @@ public class Application implements GUIManager {
     public JFrame frame;
 
     public Application() {
-
-        FlatDarkLaf.setup();
+        FlatLightLaf.setup();
 
         this.loadRoutes();
 

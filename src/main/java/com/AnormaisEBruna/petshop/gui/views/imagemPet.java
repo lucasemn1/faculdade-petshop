@@ -24,7 +24,7 @@ public class imagemPet extends javax.swing.JPanel {
     public imagemPet() {
         initComponents();
         try {
-            this.imagemPet = ImageIO.read(new File("C:\\Users\\bielf\\OneDrive\\Área de Trabalho\\g7\\gabriel\\unipe\\faculdade-petshop\\src\\main\\java\\com\\AnormaisEBruna\\petshop\\gui\\views\\imageLogin.jpeg"));  // declarar pathname com o nome do cachorro e o tipo
+            this.imagemPet = ImageIO.read(new File("com/AnormaisEBruna/petshop/assets/imgs/imageLogin.jpeg"));  // declarar pathname com o nome do cachorro e o tipo
         } catch (IOException ex) {
             Logger.getLogger(imagemLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
