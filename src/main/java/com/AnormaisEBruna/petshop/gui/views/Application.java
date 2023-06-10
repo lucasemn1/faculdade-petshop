@@ -4,7 +4,9 @@ import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
 import com.AnormaisEBruna.petshop.gui.components.pages.InitialPage;
 import com.AnormaisEBruna.petshop.gui.components.pages.LoginPage;
 import com.AnormaisEBruna.petshop.utils.Route;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -16,7 +18,8 @@ public class Application implements GUIManager {
     public JFrame frame;
 
     public Application() {
-        FlatLightLaf.setup();
+
+        FlatDarkLaf.setup();
 
         this.loadRoutes();
 

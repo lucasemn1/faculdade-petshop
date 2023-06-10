@@ -2,6 +2,7 @@ package com.AnormaisEBruna.petshop.gui.views;
 
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -30,32 +31,31 @@ public class EditarCuidador extends JPanel {
     private void initComponents() {
 
         editarCuidadorPanel = new javax.swing.JPanel();
-        labelTelefone = new javax.swing.JLabel();
-        textFieldTelefone = new javax.swing.JFormattedTextField();
-        labelCidade = new javax.swing.JLabel();
-        textFieldCidade = new javax.swing.JFormattedTextField();
-        labelBairro = new javax.swing.JLabel();
-        textFieldBairro = new javax.swing.JFormattedTextField();
-        labelCep = new javax.swing.JLabel();
-        labelNumero = new javax.swing.JLabel();
-        textFieldCep = new javax.swing.JFormattedTextField();
-        labelTitle = new javax.swing.JLabel();
         labelName = new javax.swing.JLabel();
-        texfielName = new javax.swing.JFormattedTextField();
+        labelTelefone = new javax.swing.JLabel();
         labelEmail = new javax.swing.JLabel();
-        textFieldNumero = new javax.swing.JFormattedTextField();
+        textFieldTelefone = new javax.swing.JFormattedTextField();
+        labelTitle = new javax.swing.JLabel();
+        textFieldName = new javax.swing.JFormattedTextField();
         textFieldEmail = new javax.swing.JFormattedTextField();
-        cadastrarButton = new javax.swing.JButton();
-
-        setPreferredSize(new java.awt.Dimension(1024, 1024));
+        editarButton = new javax.swing.JButton();
+        labelBairro = new javax.swing.JLabel();
+        labelCidade = new javax.swing.JLabel();
+        textFieldBairro = new javax.swing.JFormattedTextField();
+        textFieldCidade = new javax.swing.JFormattedTextField();
+        labelNumero = new javax.swing.JLabel();
+        labelCep = new javax.swing.JLabel();
+        textFieldNumero = new javax.swing.JFormattedTextField();
+        textFieldCep = new javax.swing.JFormattedTextField();
 
         editarCuidadorPanel.setBackground(new java.awt.Color(255, 255, 255));
-        editarCuidadorPanel.setMinimumSize(new java.awt.Dimension(0, 0));
         editarCuidadorPanel.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
-        labelTelefone.setText("Numero De Telefone");
+        labelName.setText("Nome");
 
+        labelTelefone.setText("Número de telefone");
 
+        labelEmail.setText("E-mail");
 
         textFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,27 +63,14 @@ public class EditarCuidador extends JPanel {
             }
         });
 
-        labelCidade.setText("Cidade");
-
-        labelBairro.setText("Bairro");
-
-        labelCep.setText("CEP");
-
-        labelNumero.setText("Numero");
-
         labelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTitle.setText("Editar Novo Cuidador");
+        labelTitle.setText("Atualizar Cadastro");
 
-        labelName.setText("Nome");
-
-        texfielName.addActionListener(new java.awt.event.ActionListener() {
+        textFieldName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                texfielNameActionPerformed(evt);
+                textFieldNameActionPerformed(evt);
             }
         });
-
-        labelEmail.setText("E-mail");
 
         textFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,15 +78,23 @@ public class EditarCuidador extends JPanel {
             }
         });
 
-        cadastrarButton.setBackground(new java.awt.Color(0, 102, 204));
-        cadastrarButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cadastrarButton.setForeground(new java.awt.Color(255, 255, 255));
-        cadastrarButton.setText("Editar");
-        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
+        editarButton.setBackground(new java.awt.Color(0, 102, 204));
+        editarButton.setForeground(new java.awt.Color(255, 255, 255));
+        editarButton.setText("Atualizar");
+        editarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarButtonActionPerformed(evt);
+                editarButtonActionPerformed(evt);
             }
         });
+
+        labelBairro.setText("Bairro");
+
+        labelCidade.setText("Cidade");
+
+
+        labelNumero.setText("Numero");
+
+        labelCep.setText("Cep");
 
 
         javax.swing.GroupLayout editarCuidadorPanelLayout = new javax.swing.GroupLayout(editarCuidadorPanel);
@@ -107,76 +102,75 @@ public class EditarCuidador extends JPanel {
         editarCuidadorPanelLayout.setHorizontalGroup(
                 editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(editarCuidadorPanelLayout.createSequentialGroup()
-                                .addContainerGap(236, Short.MAX_VALUE)
+                                .addContainerGap(365, Short.MAX_VALUE)
                                 .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editarCuidadorPanelLayout.createSequentialGroup()
-                                                .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(editarCuidadorPanelLayout.createSequentialGroup()
-                                                                .addGap(22, 22, 22)
-                                                                .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addGroup(editarCuidadorPanelLayout.createSequentialGroup()
-                                                                                .addComponent(labelCep)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(labelNumero))
-                                                                        .addComponent(labelBairro)
-                                                                        .addComponent(labelCidade)
-                                                                        .addComponent(labelTelefone)
-                                                                        .addComponent(labelName)
-                                                                        .addComponent(labelEmail)
-                                                                        .addComponent(textFieldEmail)
-                                                                        .addComponent(texfielName)
-                                                                        .addComponent(textFieldTelefone)
-                                                                        .addComponent(textFieldCidade)
-                                                                        .addComponent(textFieldBairro)
-                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editarCuidadorPanelLayout.createSequentialGroup()
-                                                                                .addComponent(textFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                                                                                .addComponent(textFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                        .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(editarCuidadorPanelLayout.createSequentialGroup()
-                                                                .addGap(25, 25, 25)
-                                                .addGap(219, 219, 219))))
+                                                .addComponent(labelTitle)
+                                                .addGap(413, 413, 413))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editarCuidadorPanelLayout.createSequentialGroup()
-                                                .addComponent(cadastrarButton)
-                                                .addGap(319, 319, 319))))
+                                                .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addComponent(labelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(labelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(textFieldBairro, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(textFieldCidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(labelName, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(textFieldTelefone, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(textFieldName)
+                                                                        .addComponent(textFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(labelTelefone)
+                                                                .addComponent(labelCep)
+                                                                .addComponent(textFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(labelNumero)
+                                                                .addComponent(textFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(360, 360, 360))))
+                        .addGroup(editarCuidadorPanelLayout.createSequentialGroup()
+                                .addGap(460, 460, 460)
+                                .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         editarCuidadorPanelLayout.setVerticalGroup(
                 editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(editarCuidadorPanelLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
+                                .addGap(61, 61, 61)
+                                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(texfielName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelEmail)
+                                .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelTelefone)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelCidade)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(labelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelBairro)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(36, 36, 36)
                                 .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelCep)
-                                        .addComponent(labelNumero))
+                                        .addComponent(labelCep, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(editarCuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(textFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(textFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cadastrarButton)
-                                .addGap(12, 12, 12))
+                                .addGap(18, 18, 18)
+                                .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -184,20 +178,18 @@ public class EditarCuidador extends JPanel {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
                                 .addComponent(editarCuidadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(297, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(editarCuidadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(37, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>
 
-    private void texfielNameActionPerformed(java.awt.event.ActionEvent evt) {
+    private void textFieldNameActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
@@ -209,9 +201,9 @@ public class EditarCuidador extends JPanel {
         // TODO add your handling code here:
     }
 
-    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        if(texfielName.getText().equals("")){
+        if(textFieldName.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Nome Invalido!");
         }else if(textFieldEmail.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Email Invalido!");
@@ -219,7 +211,7 @@ public class EditarCuidador extends JPanel {
             Cuidador layoutcuidador = new Cuidador();
             JOptionPane.showMessageDialog(null,"Editado com Sucesso!");
             layoutcuidador.setNovoEmail(textFieldEmail.getText());
-            layoutcuidador.setNovoNome(texfielName.getText());
+            layoutcuidador.setNovoNome(textFieldName.getText());
             layoutcuidador.editTable();
             setconfpanel(layoutcuidador);
         }
@@ -227,7 +219,7 @@ public class EditarCuidador extends JPanel {
 
 
     // Variables declaration - do not modify
-    private javax.swing.JButton cadastrarButton;
+    private javax.swing.JButton editarButton;
     private javax.swing.JPanel editarCuidadorPanel;
     private javax.swing.JLabel labelBairro;
     private javax.swing.JLabel labelCep;
@@ -237,7 +229,7 @@ public class EditarCuidador extends JPanel {
     private javax.swing.JLabel labelNumero;
     private javax.swing.JLabel labelTelefone;
     private javax.swing.JLabel labelTitle;
-    private javax.swing.JFormattedTextField texfielName;
+    private javax.swing.JFormattedTextField textFieldName;
     private javax.swing.JFormattedTextField textFieldBairro;
     private javax.swing.JFormattedTextField textFieldCep;
     private javax.swing.JFormattedTextField textFieldCidade;

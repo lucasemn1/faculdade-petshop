@@ -2,9 +2,7 @@ package com.AnormaisEBruna.petshop.gui.components.pages;
 
 import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
 import com.AnormaisEBruna.petshop.contracts.gui.UIScreen;
-import com.AnormaisEBruna.petshop.gui.views.Cuidador;
-import com.AnormaisEBruna.petshop.gui.views.Pet;
-import com.AnormaisEBruna.petshop.gui.views.Usuarios;
+import com.AnormaisEBruna.petshop.gui.views.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -293,10 +291,18 @@ public class InitialPage implements UIScreen {
 
     private void buttonSellsActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Vendas layoutvendas = new Vendas();
+        mainPanel.removeAll();
+        getsidebar();
+        setconfpanel(layoutvendas);
     }
 
     private void buttonServiceActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Serviços layoutservice = new Serviços();
+        mainPanel.removeAll();
+        getsidebar();
+        setconfpanel(layoutservice);
     }
 
     private void buttonServiceTypeActionPerformed(java.awt.event.ActionEvent evt) {
