@@ -26,7 +26,7 @@ public class PetshopApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String[] args) throws Exception {
-		this.application.goToRoute("Hello");
+		this.application.goToRoute("Painel Principal");
 		this.application.show();
 
 		this.userService.save(new UserModel("Lucas 2", "lucas@lucas.com", "123"));

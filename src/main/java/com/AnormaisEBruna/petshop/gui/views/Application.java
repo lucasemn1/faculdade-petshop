@@ -1,10 +1,10 @@
 package com.AnormaisEBruna.petshop.gui.views;
 
 import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
-import com.AnormaisEBruna.petshop.gui.components.helloworld.HelloWorld;
-import com.AnormaisEBruna.petshop.gui.components.helloworld.HelloWorld2;
+import com.AnormaisEBruna.petshop.gui.components.pages.InitialPage;
+import com.AnormaisEBruna.petshop.gui.components.pages.LoginPage;
 import com.AnormaisEBruna.petshop.utils.Route;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -16,7 +16,7 @@ public class Application implements GUIManager {
     public JFrame frame;
 
     public Application() {
-        FlatMacDarkLaf.setup();
+        FlatLightLaf.setup();
 
         this.loadRoutes();
 
@@ -27,8 +27,10 @@ public class Application implements GUIManager {
 
     private void loadRoutes() {
         this.routes = new ArrayList();
-        this.routes.add(new Route("Hello", "Hello World", new HelloWorld(this).mainPanel));
-        this.routes.add(new Route("Hello2", "Hello World 2", new HelloWorld2(this).mainPanel));
+        this.routes.add(new Route("Painel Principal", "Painel Principal", new InitialPage(this).mainPanel));
+        this.routes.add(new Route("Painel de Login", "Painel de Login", new LoginPage(this).panelLogin));
+        this.routes.add(new Route("Cuidador", "Painel do Cuidador", new Cuidador().cuidadorPanel));
+        this.routes.add(new Route("Usuarios", "Painel do Usuario", new Usuarios()));
     }
 
     private Route getRouteInstance(String routeName) throws Exception {
