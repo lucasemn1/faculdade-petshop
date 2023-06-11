@@ -61,6 +61,7 @@ public class LoginPage implements UIScreen {
             fotoPetShop = new javax.swing.JPanel();
             JLabel jLabel4 = new JLabel();
 
+
             panelLogin.setBackground(new java.awt.Color(255, 255, 255));
             panelLogin.setPreferredSize(new java.awt.Dimension(1440, 1024));
 
@@ -138,6 +139,7 @@ public class LoginPage implements UIScreen {
 
             ImageIcon imageIcon = LoadImage.load("imgs/imageLogin.jpeg");
             jLabel4.setIcon(imageIcon);
+            fotoPetShop.add(jLabel4, java.awt.BorderLayout.CENTER);
 
             javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
             panelLogin.setLayout(panelLoginLayout);

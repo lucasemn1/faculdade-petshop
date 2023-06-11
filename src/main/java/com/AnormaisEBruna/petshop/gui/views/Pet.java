@@ -68,6 +68,8 @@ public class Pet extends JPanel {
         EditPet = new javax.swing.JButton();
         ViewPet = new javax.swing.JButton();
 
+
+        setPreferredSize(new java.awt.Dimension(1024, 1024));
         setLayout(new FlowLayout());
 
         PetPanel.setBackground(new java.awt.Color(255, 255, 255));
