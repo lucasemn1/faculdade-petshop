@@ -15,7 +15,8 @@ public class VerPet extends javax.swing.JPanel {
     /**
      * Creates new form VerPet
      */
-    String nomedopet,nomedocuidador,nomedaraça;
+    String nomedopet="Polo",nomedocuidador="Pablo",nomedaraça="Spitz";
+
 
     public VerPet()  {
         try {
@@ -53,6 +54,7 @@ public class VerPet extends javax.swing.JPanel {
         p.setLocation(0,0 ); // abre o painel já no local desejado
         VerPetPanel.add(p);
         VerPetPanel.revalidate();
+
         VerPetPanel.repaint();
     }
     /**
@@ -84,9 +86,7 @@ public class VerPet extends javax.swing.JPanel {
         verFotoPet.setPreferredSize(new java.awt.Dimension(250, 250));
         verFotoPet.setLayout(new java.awt.BorderLayout());
 
-        ImageIcon imageIcon = LoadImage.load("imgs/imageLogin.jpeg");
-        jLabel1.setIcon(imageIcon);
-        verFotoPet.add(jLabel1, java.awt.BorderLayout.CENTER);
+
 
         PetNameView.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PetNameView.setForeground(new java.awt.Color(0, 0, 0));
@@ -102,8 +102,10 @@ public class VerPet extends javax.swing.JPanel {
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("______________");
-
-
+        jLabel1.setBounds(386,91,250,250);
+        ImageIcon imageIcon = LoadImage.load("imgs/imagempet.png");
+        jLabel1.setIcon(imageIcon);
+        verFotoPet.add(jLabel1, java.awt.BorderLayout.CENTER);
         javax.swing.GroupLayout VerPetPanelLayout = new javax.swing.GroupLayout(VerPetPanel);
         VerPetPanel.setLayout(VerPetPanelLayout);
         VerPetPanelLayout.setHorizontalGroup(
@@ -111,26 +113,27 @@ public class VerPet extends javax.swing.JPanel {
                         .addGroup(VerPetPanelLayout.createSequentialGroup()
                                 .addGroup(VerPetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(VerPetPanelLayout.createSequentialGroup()
+                                                .addGap(462, 462, 462)
+                                                .addComponent(PetNameView))
+                                        .addGroup(VerPetPanelLayout.createSequentialGroup()
                                                 .addGap(386, 386, 386)
                                                 .addGroup(VerPetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jTextField1)
-                                                        .addGroup(VerPetPanelLayout.createSequentialGroup()
-                                                                .addComponent(racePet)
-                                                                .addGap(56, 56, 56)
-                                                                .addComponent(CuidadorPetView, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(verFotoPet, javax.swing.GroupLayout.DEFAULT_SIZE, 1132, Short.MAX_VALUE)))
-                                        .addGroup(VerPetPanelLayout.createSequentialGroup()
-                                                .addGap(462, 462, 462)
-                                                .addComponent(PetNameView)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(verFotoPet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(VerPetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addGroup(VerPetPanelLayout.createSequentialGroup()
+                                                                        .addComponent(racePet)
+                                                                        .addGap(56, 56, 56)
+                                                                        .addComponent(CuidadorPetView, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(jTextField1))))
+                                .addContainerGap(388, Short.MAX_VALUE))
         );
         VerPetPanelLayout.setVerticalGroup(
                 VerPetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(VerPetPanelLayout.createSequentialGroup()
-                                .addGap(79, 79, 79)
+                                .addGap(91, 91, 91)
                                 .addComponent(verFotoPet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(PetNameView, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)

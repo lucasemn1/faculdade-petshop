@@ -7,6 +7,7 @@ import org.springframework.core.io.ResourceLoader;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -19,6 +20,13 @@ public class NovoCuidador extends javax.swing.JPanel {
     /**
      * Creates new form EditarCuidador
      */
+    public void setconfpanel(JPanel p){
+        p.setSize(1024,1024);
+        p.setLocation(0,0 ); // setlocation 0 p ser no meio da tela
+        novoCuidadorPanel.add(p);
+        novoCuidadorPanel.revalidate();
+        novoCuidadorPanel.repaint();
+    }
     public NovoCuidador() {
         try {
             initComponents();
@@ -62,11 +70,6 @@ public class NovoCuidador extends javax.swing.JPanel {
 
         labelTelefone.setText("Numero De Telefone");
 
-        textFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldTelefoneActionPerformed(evt);
-            }
-        });
 
         labelCidade.setText("Cidade");
 
@@ -82,22 +85,24 @@ public class NovoCuidador extends javax.swing.JPanel {
 
         labelName.setText("Nome");
 
-        texfielName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                texfielNameActionPerformed(evt);
-            }
-        });
+
 
         labelEmail.setText("E-mail");
 
-        textFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldEmailActionPerformed(evt);
-            }
-        });
+
 
         cadastrarButton.setBackground(new java.awt.Color(51, 102, 255));
+        cadastrarButton.setForeground(new java.awt.Color(255,255,255));
         cadastrarButton.setText("Cadastrar");
+        cadastrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    cadastrarButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
         ImageIcon imageIcon = LoadImage.load("imgs/imageCuidador.png");
 
@@ -199,16 +204,10 @@ public class NovoCuidador extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
-    private void texfielNameActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void textFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void textFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    private void cadastrarButtonActionPerformed(ActionEvent evt) throws IOException {
+        Cuidador layoutcuidador =  new Cuidador();
+        novoCuidadorPanel.removeAll();
+        setconfpanel(layoutcuidador);
     }
 
 
