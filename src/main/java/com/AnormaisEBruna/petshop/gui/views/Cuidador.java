@@ -5,11 +5,13 @@ import com.AnormaisEBruna.petshop.gui.components.pages.InitialPage;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class Cuidador  extends  JPanel{
     NovoCuidador cadastropage = new NovoCuidador();
     EditarCuidador editpage = new EditarCuidador();
+    VerCuidador verpage = new VerCuidador();
 
     Object nome,email,novonome,novoemail;
 
@@ -39,23 +41,20 @@ public class Cuidador  extends  JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        cuidadorPanel = new JPanel();
-        titlePage = new javax.swing.JLabel();
+        cuidadorPanel = new javax.swing.JPanel();
+        cuidadorLabel = new javax.swing.JLabel();
         novoCuidadorButton = new javax.swing.JButton();
-        editarButton = new javax.swing.JButton();
-        excluirButton = new javax.swing.JButton();
-        scrollPanel = new javax.swing.JScrollPane();
-        tableCuidadores = new javax.swing.JTable();
-
-
-        setPreferredSize(new java.awt.Dimension(1024, 1024));
-        setLayout(new FlowLayout());
+        deletButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaCuidadores = new javax.swing.JTable();
+        editButton = new javax.swing.JButton();
+        visualizarButton = new javax.swing.JButton();
 
         cuidadorPanel.setBackground(new java.awt.Color(255, 255, 255));
         cuidadorPanel.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
-        titlePage.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        titlePage.setText("Cuidadores");
+        cuidadorLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cuidadorLabel.setText("Cuidador");
 
         novoCuidadorButton.setText("Novo Cuidador");
         novoCuidadorButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,43 +63,44 @@ public class Cuidador  extends  JPanel{
             }
         });
 
-        editarButton.setText("Editar");
-        editarButton.setMaximumSize(new java.awt.Dimension(75, 22));
-        editarButton.setMinimumSize(new java.awt.Dimension(75, 22));
-        editarButton.addActionListener(new java.awt.event.ActionListener() {
+        deletButton.setText("Deletar");
+        deletButton.setMaximumSize(new java.awt.Dimension(75, 22));
+        deletButton.setMinimumSize(new java.awt.Dimension(75, 22));
+        deletButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarButtonActionPerformed(evt);
+                deletButtonActionPerformed(evt);
             }
         });
 
-        excluirButton.setText("Excluir");
-        excluirButton.setMaximumSize(new java.awt.Dimension(75, 22));
-        excluirButton.setMinimumSize(new java.awt.Dimension(75, 22));
-        excluirButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                excluirButtonActionPerformed(evt);
-            }
-        });
-
-        tableCuidadores.setModel(new DefaultTableModel(
+        tabelaCuidadores.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
 
                 },
                 new String [] {
-                        "Nome", "E-mail"
+                        "ID", "Nome", "Email", "Endereço", "Telefone"
                 }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                    false, false, false
-            };
+        ));
+        tabelaCuidadores.setToolTipText("");
+        tabelaCuidadores.setShowGrid(false);
+        jScrollPane1.setViewportView(tabelaCuidadores);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        editButton.setText("Editar");
+        editButton.setMaximumSize(new java.awt.Dimension(75, 22));
+        editButton.setMinimumSize(new java.awt.Dimension(75, 22));
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
             }
         });
-        tableCuidadores.setToolTipText("");
-        tableCuidadores.setShowGrid(false);
-        scrollPanel.setViewportView(tableCuidadores);
+
+        visualizarButton.setText("Visualizar");
+        visualizarButton.setMaximumSize(new java.awt.Dimension(75, 22));
+        visualizarButton.setMinimumSize(new java.awt.Dimension(75, 22));
+        visualizarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cuidadorPanelLayout = new javax.swing.GroupLayout(cuidadorPanel);
         cuidadorPanel.setLayout(cuidadorPanelLayout);
@@ -109,35 +109,84 @@ public class Cuidador  extends  JPanel{
                         .addGroup(cuidadorPanelLayout.createSequentialGroup()
                                 .addGap(92, 92, 92)
                                 .addGroup(cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(cuidadorPanelLayout.createSequentialGroup()
-                                                .addComponent(titlePage, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
-                                        .addGroup(cuidadorPanelLayout.createSequentialGroup()
-                                                .addComponent(novoCuidadorButton)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(excluirButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(125, 125, 125))
+                                        .addComponent(cuidadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cuidadorPanelLayout.createSequentialGroup()
+                                                        .addComponent(novoCuidadorButton)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(visualizarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(deletButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(7, 7, 7))
         );
         cuidadorPanelLayout.setVerticalGroup(
                 cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(cuidadorPanelLayout.createSequentialGroup()
                                 .addGap(64, 64, 64)
-                                .addComponent(titlePage, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(79, 79, 79)
-                                .addGroup(cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(excluirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cuidadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(80, 80, 80)
+                                .addGroup(cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(novoCuidadorButton)
-                                        .addComponent(editarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(cuidadorPanelLayout.createSequentialGroup()
+                                                .addGap(1, 1, 1)
+                                                .addGroup(cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(cuidadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(visualizarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(deletButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
-                                .addComponent(scrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(371, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        cuidadorPanel.setBounds(0,0,-1,-1);
-        add(cuidadorPanel);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1024, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(cuidadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1024, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(cuidadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>
+
+    private void deletButtonActionPerformed(ActionEvent evt) {
+        if(tabelaCuidadores.getSelectedRow() != -1){
+            DefaultTableModel tabelaUsuario = (DefaultTableModel) tabelaCuidadores.getModel();
+            tabelaUsuario.removeRow(tabelaCuidadores.getSelectedRow());
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um cuidador para Excluir");
+        }
+    }
+
+    private void editButtonActionPerformed(ActionEvent evt) {
+        DefaultTableModel tablecuidadores = (DefaultTableModel) tabelaCuidadores.getModel();
+        if(tabelaCuidadores.getSelectedRow() != -1){
+            cuidadorPanel.removeAll();
+            setconfpanel(editpage);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um cuidador para Editar");
+        }
+    }
+
+    private void visualizarButtonActionPerformed(ActionEvent evt) {
+        cuidadorPanel.removeAll();
+        setconfpanel(verpage);
+    }
+
     private void novoCuidadorButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         cuidadorPanel.removeAll();
@@ -146,7 +195,7 @@ public class Cuidador  extends  JPanel{
     }
     // atualiza os dados antes de voltar para essa pagina.
     public void refreshtable(){
-        DefaultTableModel tablecuidadores = (DefaultTableModel) tableCuidadores.getModel();
+        DefaultTableModel tablecuidadores = (DefaultTableModel) tabelaCuidadores.getModel();
         Object[] dados = {nome,email,"indisponivel"};
         tablecuidadores.addRow(dados);
     }
@@ -156,12 +205,6 @@ public class Cuidador  extends  JPanel{
     public void setEmail(Object email){
         this.email=email;
     }
-    public void editTable(){
-        DefaultTableModel tabelaUsuario = (DefaultTableModel) tableCuidadores.getModel();
-        tabelaUsuario.setValueAt(novonome, tableCuidadores.getSelectedRow(), 0);
-        tabelaUsuario.setValueAt(novoemail, tableCuidadores.getSelectedRow(), 1);
-        tabelaUsuario.setValueAt("agr",tableCuidadores.getSelectedRow(),2);
-    }
     public void setNovoNome(Object novonome){
         this.novonome=novonome;
     }
@@ -169,31 +212,15 @@ public class Cuidador  extends  JPanel{
         this.novoemail=novoemail;
     }
 
-    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        if(tableCuidadores.getSelectedRow() != -1){
-            cuidadorPanel.removeAll();
-            setconfpanel(editpage);
-        }else{
-            JOptionPane.showMessageDialog(null,"Selecione um cuidador para Editar");
-        }
-    }
 
-    private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        if(tableCuidadores.getSelectedRow() != -1){
-            DefaultTableModel tabelaUsuario = (DefaultTableModel) tableCuidadores.getModel();
-            tabelaUsuario.removeRow(tableCuidadores.getSelectedRow());
-        }else{
-            JOptionPane.showMessageDialog(null,"Selecione um cuidador para Excluir");
-        }
-    }
-    public JPanel cuidadorPanel;
-    private JButton editarButton;
-    private JButton excluirButton;
-    private JButton novoCuidadorButton;
-    private JTable tableCuidadores;
-    private JScrollPane scrollPanel;
-    private JLabel titlePage;
+
+    private javax.swing.JLabel cuidadorLabel;
+    private javax.swing.JPanel cuidadorPanel;
+    private javax.swing.JButton deletButton;
+    private javax.swing.JButton editButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton novoCuidadorButton;
+    public javax.swing.JTable tabelaCuidadores;
+    private javax.swing.JButton visualizarButton;
    
 }

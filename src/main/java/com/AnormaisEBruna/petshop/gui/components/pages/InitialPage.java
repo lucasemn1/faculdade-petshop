@@ -13,7 +13,7 @@ public class InitialPage implements UIScreen {
     public JPanel mainPanel;
     private JButton buttonExit;
     public JPanel panelSideBar; // tornar panelSideBar um membro da classe
-
+    String nomelogin="bruna"; // alterar para o nome de quem estiver utilizando de acordo com o login
     public InitialPage(GUIManager application) {
         initComponents(); // chamar o initComponents
         this.buttonExit.addActionListener((event) -> {
@@ -120,7 +120,7 @@ public class InitialPage implements UIScreen {
 
         buttonUser.setBackground(new Color(51, 0, 0));
         buttonUser.setForeground(new Color(255, 255, 255));
-        buttonUser.setText("Usuarios");
+        buttonUser.setText("Usuários");
         buttonUser.setBorderPainted(false);
         buttonUser.setHorizontalAlignment(SwingConstants.LEFT);
         buttonUser.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +197,7 @@ public class InitialPage implements UIScreen {
 
         jLabel4.setFont(new Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new Color(255, 255, 255));
-        jLabel4.setText("Olá, Usuario!");
+        jLabel4.setText("Olá, "+nomelogin+"!");
 
         jLabel5.setFont(new Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setForeground(new Color(255, 255, 255));
