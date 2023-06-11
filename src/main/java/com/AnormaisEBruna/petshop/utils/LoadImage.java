@@ -10,6 +10,6 @@ public class LoadImage {
     public static ImageIcon load(String path) throws IOException {
         ResourceLoader resourceLoader = new DefaultResourceLoader();
 
-        return new ImageIcon(resourceLoader.getResource(path).getURI().getPath());
+        return new ImageIcon(resourceLoader.getResource("classpath:" + path).getURI().getPath());
     }
 }
