@@ -159,22 +159,23 @@ public class NovoPet extends JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_raçapetActionPerformed
 
-    private void adicionarpetbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarpetbuttonActionPerformed
+    private void adicionarpetbuttonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if(nomepet.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Nome Invalido!");
         }else if(raçapet.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Raça Invalido!");
-            
         }else{
             Pet layoutpet =  new Pet();
             JOptionPane.showMessageDialog(null,"Pet adicionado com Sucesso!");
-            layoutpet.setnomepet(nomepet.getText());
-            layoutpet.setraçapet(raçapet.getText());
+            layoutpet.setnomepet(nomepet.getText()); // seta  nome
+            layoutpet.setraçapet(raçapet.getText()); // seta raça
+            layoutpet.guardarnomecuidador=layoutpet.nomecuidador[CuidadorDoPet.getSelectedIndex()]; // seta o nome do cuidador que foi selecionado
+            layoutpet.refreshtable();
             CadastroPetPanel.removeAll();
             setconfpanel(layoutpet);
         }
-    }//GEN-LAST:event_adicionarpetbuttonActionPerformed
+    }
 
     private void CuidadorDoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadorDoPetActionPerformed
         // TODO add your handling code here:

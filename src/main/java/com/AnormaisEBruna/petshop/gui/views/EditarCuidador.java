@@ -57,26 +57,9 @@ public class EditarCuidador extends JPanel {
 
         labelEmail.setText("E-mail");
 
-        textFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldTelefoneActionPerformed(evt);
-            }
-        });
 
         labelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelTitle.setText("Atualizar Cadastro");
-
-        textFieldName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldNameActionPerformed(evt);
-            }
-        });
-
-        textFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldEmailActionPerformed(evt);
-            }
-        });
 
         editarButton.setBackground(new java.awt.Color(0, 102, 204));
         editarButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,17 +172,7 @@ public class EditarCuidador extends JPanel {
         );
     }// </editor-fold>
 
-    private void textFieldNameActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
-    private void textFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void textFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -212,7 +185,7 @@ public class EditarCuidador extends JPanel {
             JOptionPane.showMessageDialog(null,"Editado com Sucesso!");
             layoutcuidador.setNovoEmail(textFieldEmail.getText());
             layoutcuidador.setNovoNome(textFieldName.getText());
-            layoutcuidador.editTable();
+//            layoutcuidador.editTable();
             setconfpanel(layoutcuidador);
         }
     }

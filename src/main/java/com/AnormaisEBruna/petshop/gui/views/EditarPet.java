@@ -168,8 +168,8 @@ public class EditarPet extends JPanel {
         }else{
             Pet layoutpet =  new Pet();
             JOptionPane.showMessageDialog(null,"Pet adicionado com Sucesso!");
-            layoutpet.setnomepet(nomepet.getText());
-            layoutpet.setraçapet(raçapet.getText());
+//            layoutpet.setnomepet(nomepet.getText());
+//            layoutpet.setraçapet(raçapet.getText());
             EditarPetPanel.removeAll();
             setconfpanel(layoutpet);
         }

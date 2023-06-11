@@ -22,14 +22,14 @@ public class imagemLogin extends javax.swing.JPanel {
     public imagemLogin() {
         initComponents();
         try {
-            this.imagemLogin = ImageIO.read(new File("com/AnormaisEBruna/petshop/assets/imgs/imageLogin.jpeg"));
+            imagemLogin = ImageIO.read(new File("C:\\Users\\detup\\Desktop\\merda123\\src\\main\\java\\com\\AnormaisEBruna\\petshop\\assets\\imgs\\imageLogin.jpeg"));
         } catch (IOException ex) {
             Logger.getLogger(imagemLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(imagemLogin.getScaledInstance(555, 555, 0),-10,0,null);
+        g.drawImage(imagemLogin.getScaledInstance(555, 555, 0),0,0,null);
     }
 
     /**
