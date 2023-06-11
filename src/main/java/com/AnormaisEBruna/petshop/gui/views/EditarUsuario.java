@@ -149,9 +149,9 @@ public class EditarUsuario extends JPanel {
         }else{
             Usuarios layoutusuario = new Usuarios();
             JOptionPane.showMessageDialog(null,"Editado com Sucesso!");
-            layoutusuario.setNovoEmail(novoEmailUsuario.getText()); 
-            layoutusuario.setNovoNome(novoNomeUsuario.getText());
-            layoutusuario.editTable();
+//            layoutusuario.setNovoEmail(novoEmailUsuario.getText());
+//            layoutusuario.setNovoNome(novoNomeUsuario.getText());
+//            layoutusuario.editTable();
             EditarUsuarioPanel.removeAll();
             setconfpanel(layoutusuario);   
         }

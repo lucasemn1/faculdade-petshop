@@ -163,6 +163,8 @@ public class LoginPage implements UIScreen {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
+
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void emailloginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailloginbuttonActionPerformed
