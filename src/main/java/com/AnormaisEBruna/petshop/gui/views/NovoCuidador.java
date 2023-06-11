@@ -28,11 +28,7 @@ public class NovoCuidador extends javax.swing.JPanel {
         novoCuidadorPanel.repaint();
     }
     public NovoCuidador() {
-        try {
-            initComponents();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        initComponents();
     }
 
     /**
@@ -42,7 +38,7 @@ public class NovoCuidador extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents() throws IOException {
+    private void initComponents() {
 
         novoCuidadorPanel = new javax.swing.JPanel();
         labelTelefone = new javax.swing.JLabel();
@@ -63,10 +59,11 @@ public class NovoCuidador extends javax.swing.JPanel {
         cadastrarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new Dimension(1024, 1024));
-        setLayout(new FlowLayout());
 
+
+        setLayout(new FlowLayout());
         novoCuidadorPanel.setBackground(new java.awt.Color(255, 255, 255));
+        novoCuidadorPanel.setPreferredSize(new java.awt.Dimension(1024,1024));
 
         labelTelefone.setText("Numero De Telefone");
 
@@ -104,7 +101,12 @@ public class NovoCuidador extends javax.swing.JPanel {
             }
         });
 
-        ImageIcon imageIcon = LoadImage.load("imgs/imageCuidador.png");
+        ImageIcon imageIcon = null;
+        try {
+            imageIcon = LoadImage.load("imgs/imageCuidador.png");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         jLabel1.setIcon(imageIcon); // NOI18N
 
@@ -206,8 +208,14 @@ public class NovoCuidador extends javax.swing.JPanel {
 
     private void cadastrarButtonActionPerformed(ActionEvent evt) throws IOException {
         Cuidador layoutcuidador =  new Cuidador();
+        JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+        layoutcuidador.setNome(labelName.getText());
+        layoutcuidador.setEmail(labelEmail.getText());
+        layoutcuidador.setEndereço(labelCidade.getText());
+        layoutcuidador.setTelefone(labelNumero.getText());
+        layoutcuidador.refreshtable();
         novoCuidadorPanel.removeAll();
-        setconfpanel(layoutcuidador);
+
     }
 
 
