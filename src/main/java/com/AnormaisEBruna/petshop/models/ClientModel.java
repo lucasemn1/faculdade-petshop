@@ -12,6 +12,7 @@ public class ClientModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    private String email;
     private String photoUrl;
     private String phoneNumber;
 
@@ -31,10 +32,18 @@ public class ClientModel {
     )
     private List<PetModel> pets;
 
-    public static ClientModel newInstance(String name, String photoUrl, String phoneNumber, AddressModel address, UserModel registeredBy) {
+    public static ClientModel newInstance(
+        String name,
+        String email,
+        String photoUrl,
+        String phoneNumber,
+        AddressModel address,
+        UserModel registeredBy
+    ) {
         ClientModel client = new ClientModel();
 
         client.setName(name);
+        client.setEmail(email);
         client.setPhotoUrl(photoUrl);
         client.setPhoneNumber(phoneNumber);
         client.setAddress(address);
@@ -58,6 +67,14 @@ public class ClientModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhotoUrl() {
@@ -105,6 +122,7 @@ public class ClientModel {
         return "ClientModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", photoUrl='" + photoUrl + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address=" + address +

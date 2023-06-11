@@ -11,7 +11,7 @@ public class ProvidedServiceModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private String photoUrl;
+    private double price;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pets_id")
@@ -21,11 +21,11 @@ public class ProvidedServiceModel {
     @JoinColumn(name = "service_types_id")
     private ServiceType serviceType;
 
-    public static ProvidedServiceModel newInstance(String name, String photoUrl, PetModel pet, ServiceType serviceType) {
+    public static ProvidedServiceModel newInstance(String name, double price, PetModel pet, ServiceType serviceType) {
         ProvidedServiceModel providedService = new ProvidedServiceModel();
 
         providedService.setName(name);
-        providedService.setPhotoUrl(photoUrl);
+        providedService.setPrice(price);
         providedService.setPet(pet);
         providedService.setServiceType(serviceType);
 
@@ -48,12 +48,12 @@ public class ProvidedServiceModel {
         this.name = name;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public PetModel getPet() {
@@ -77,7 +77,7 @@ public class ProvidedServiceModel {
         return "ProvidedServiceModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", photoUrl='" + photoUrl + '\'' +
+                ", price='" + price + '\'' +
                 ", pet=" + pet +
                 ", serviceType=" + serviceType +
                 '}';
