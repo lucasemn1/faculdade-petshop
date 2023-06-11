@@ -1,6 +1,10 @@
 package com.AnormaisEBruna.petshop.gui.views;
 
-public class NovoServiço extends javax.swing.JPanel {
+import javax.swing.*;
+import java.awt.*;
+
+
+public class NovoServiço extends JPanel {
 
     /**
      * Creates new form NovoServiço
@@ -29,6 +33,14 @@ public class NovoServiço extends javax.swing.JPanel {
         cadastrarButton = new javax.swing.JButton();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
+
+        setPreferredSize(new Dimension(1024, 1024));
+        setLayout(new FlowLayout());
+
+
+        novoServiçoPanel.setBackground(new java.awt.Color(255, 255, 255));
+        novoServiçoPanel.setPreferredSize(new Dimension(1024, 1024));
+
 
         labelTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelTitulo.setText("Cadastrar Novo Serviço");
@@ -148,7 +160,7 @@ public class NovoServiço extends javax.swing.JPanel {
     private javax.swing.JLabel labelPet;
     private javax.swing.JLabel labelPreço;
     private javax.swing.JLabel labelTitulo;
-    private javax.swing.JPanel novoServiçoPanel;
+    public javax.swing.JPanel novoServiçoPanel;
     private javax.swing.JFormattedTextField textFieldNome;
     private javax.swing.JFormattedTextField textFieldPet;
     private javax.swing.JFormattedTextField textFieldPreço;

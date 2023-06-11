@@ -192,6 +192,7 @@ public class EditarCuidador extends JPanel {
             layoutcuidador.setEmail(labelEmail.getText());
             layoutcuidador.setEndereço(labelCidade.getText());
             layoutcuidador.setTelefone(labelNumero.getText());
+            editarCuidadorPanel.removeAll();
             layoutcuidador.refreshtable();
             setconfpanel(layoutcuidador);
         }

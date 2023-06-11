@@ -9,6 +9,8 @@ import java.awt.*;
  */
 public class TiposDeServiço extends JPanel {
 
+    NovoServiço cadastrarservico = new NovoServiço();
+
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
         p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
@@ -43,6 +45,7 @@ public class TiposDeServiço extends JPanel {
         setLayout(new FlowLayout());
 
         serviceTypePanel.setBackground(new Color(255, 255, 255));
+        serviceTypePanel.setPreferredSize(new Dimension(1024, 1024));
 
         novoServicoButton.setText("Novo Serviço");
         novoServicoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +144,6 @@ public class TiposDeServiço extends JPanel {
 
     private void novoServicoButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        NovoServiço cadastrarservico = new NovoServiço();
         serviceTypePanel.removeAll();
         setconfpanel(cadastrarservico);
     }

@@ -59,9 +59,6 @@ public class NovoCuidador extends javax.swing.JPanel {
         cadastrarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-
-
-        setLayout(new FlowLayout());
         novoCuidadorPanel.setBackground(new java.awt.Color(255, 255, 255));
         novoCuidadorPanel.setPreferredSize(new java.awt.Dimension(1024,1024));
 
@@ -215,7 +212,7 @@ public class NovoCuidador extends javax.swing.JPanel {
         layoutcuidador.setTelefone(labelNumero.getText());
         layoutcuidador.refreshtable();
         novoCuidadorPanel.removeAll();
-
+        setconfpanel(layoutcuidador);
     }
 
 
