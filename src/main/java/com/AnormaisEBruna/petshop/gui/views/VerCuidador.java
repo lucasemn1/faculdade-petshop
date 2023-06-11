@@ -26,6 +26,9 @@ public class VerCuidador extends javax.swing.JPanel {
         sairButton = new javax.swing.JButton();
         visualizarPet = new javax.swing.JButton();
 
+        cuidadorViewPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         tabelaDosPets.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                         {null, null, null},

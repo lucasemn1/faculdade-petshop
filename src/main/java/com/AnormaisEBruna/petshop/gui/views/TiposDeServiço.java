@@ -9,6 +9,14 @@ import java.awt.*;
  */
 public class TiposDeServiço extends JPanel {
 
+    public void setconfpanel(JPanel p){
+        p.setSize(1024,1024);
+        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        serviceTypePanel.add(p);
+        serviceTypePanel.revalidate();
+        serviceTypePanel.repaint();
+    }
+
     public TiposDeServiço() {
         initComponents();
     }
@@ -22,7 +30,7 @@ public class TiposDeServiço extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        serviceTypePanel = new javax.swing.JPanel();
         novoServicoButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -34,7 +42,7 @@ public class TiposDeServiço extends JPanel {
         setPreferredSize(new Dimension(1024, 1024));
         setLayout(new FlowLayout());
 
-        jPanel1.setBackground(new Color(255, 255, 255));
+        serviceTypePanel.setBackground(new Color(255, 255, 255));
 
         novoServicoButton.setText("Novo Serviço");
         novoServicoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -83,18 +91,18 @@ public class TiposDeServiço extends JPanel {
 
         jFormattedTextField1.setText("Serviços");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout serviceTypePanelLayout = new javax.swing.GroupLayout(serviceTypePanel);
+        serviceTypePanel.setLayout(serviceTypePanelLayout);
+        serviceTypePanelLayout.setHorizontalGroup(
+                serviceTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(serviceTypePanelLayout.createSequentialGroup()
                                 .addGap(137, 137, 137)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(serviceTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(serviceTypePanelLayout.createSequentialGroup()
+                                                .addGroup(serviceTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addGroup(serviceTypePanelLayout.createSequentialGroup()
                                                                 .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(27, 27, 27)
                                                                 .addComponent(novoServicoButton)))
@@ -104,13 +112,13 @@ public class TiposDeServiço extends JPanel {
                                                 .addComponent(excluirButton)))
                                 .addContainerGap(164, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+        serviceTypePanelLayout.setVerticalGroup(
+                serviceTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(serviceTypePanelLayout.createSequentialGroup()
                                 .addGap(78, 78, 78)
                                 .addComponent(jLabel1)
                                 .addGap(41, 41, 41)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(serviceTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(novoServicoButton)
                                         .addComponent(editarButton)
                                         .addComponent(excluirButton)
@@ -120,7 +128,7 @@ public class TiposDeServiço extends JPanel {
                                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        add(jPanel1);
+        add(serviceTypePanel);
     }// </editor-fold>                        
 
     private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +141,9 @@ public class TiposDeServiço extends JPanel {
 
     private void novoServicoButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        NovoServiço cadastrarservico = new NovoServiço();
+        serviceTypePanel.removeAll();
+        setconfpanel(cadastrarservico);
     }
 
 
@@ -141,7 +152,7 @@ public class TiposDeServiço extends JPanel {
     private javax.swing.JButton excluirButton;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel serviceTypePanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton novoServicoButton;
