@@ -13,7 +13,7 @@ public class Cuidador  extends  JPanel{
     EditarCuidador editpage = new EditarCuidador();
     VerCuidador verpage = new VerCuidador();
 
-    Object nome,email,novonome,novoemail;
+    Object nome,email,novonome,novoemail,endereço,telefone;
 
 
     /**
@@ -196,7 +196,7 @@ public class Cuidador  extends  JPanel{
     // atualiza os dados antes de voltar para essa pagina.
     public void refreshtable(){
         DefaultTableModel tablecuidadores = (DefaultTableModel) tabelaCuidadores.getModel();
-        Object[] dados = {nome,email,"indisponivel"};
+        Object[] dados = {"ID",nome,email,endereço,telefone};
         tablecuidadores.addRow(dados);
     }
     public void setNome(Object nome){
@@ -205,12 +205,9 @@ public class Cuidador  extends  JPanel{
     public void setEmail(Object email){
         this.email=email;
     }
-    public void setNovoNome(Object novonome){
-        this.novonome=novonome;
-    }
-    public void setNovoEmail(Object novoemail){
-        this.novoemail=novoemail;
-    }
+    public void setTelefone(Object telefone){this.telefone=telefone; }
+    public void setEndereço(Object endereço){this.endereço=endereço; }
+
 
 
 
