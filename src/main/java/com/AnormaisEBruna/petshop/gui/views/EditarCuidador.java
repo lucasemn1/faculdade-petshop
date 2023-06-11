@@ -188,9 +188,11 @@ public class EditarCuidador extends JPanel {
         }else{
             Cuidador layoutcuidador = new Cuidador();
             JOptionPane.showMessageDialog(null,"Editado com Sucesso!");
-            layoutcuidador.setNovoEmail(textFieldEmail.getText());
-            layoutcuidador.setNovoNome(textFieldName.getText());
-//            layoutcuidador.editTable();
+            layoutcuidador.setNome(labelName.getText());
+            layoutcuidador.setEmail(labelEmail.getText());
+            layoutcuidador.setEndereço(labelCidade.getText());
+            layoutcuidador.setTelefone(labelNumero.getText());
+            layoutcuidador.refreshtable();
             setconfpanel(layoutcuidador);
         }
     }
