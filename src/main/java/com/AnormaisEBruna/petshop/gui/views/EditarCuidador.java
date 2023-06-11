@@ -3,6 +3,7 @@ package com.AnormaisEBruna.petshop.gui.views;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 /**
  *
@@ -83,7 +84,11 @@ public class EditarCuidador extends JPanel {
         editarButton.setText("Atualizar");
         editarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarButtonActionPerformed(evt);
+                try {
+                    editarButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -201,7 +206,7 @@ public class EditarCuidador extends JPanel {
         // TODO add your handling code here:
     }
 
-    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {
+    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         // TODO add your handling code here:
         if(textFieldName.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Nome Invalido!");

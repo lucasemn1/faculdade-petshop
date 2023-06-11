@@ -5,6 +5,7 @@ import com.AnormaisEBruna.petshop.gui.components.pages.InitialPage;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.IOException;
 
 public class Cuidador  extends  JPanel{
     NovoCuidador cadastropage = new NovoCuidador();
@@ -24,7 +25,7 @@ public class Cuidador  extends  JPanel{
         cuidadorPanel.revalidate();
         cuidadorPanel.repaint();
     }
-    public Cuidador() {
+    public Cuidador() throws IOException {
         initComponents();
 
     }

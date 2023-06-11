@@ -31,7 +31,6 @@ public class Application implements GUIManager {
         this.routes = new ArrayList();
         this.routes.add(new Route("Painel Principal", "Painel Principal", new InitialPage(this).mainPanel));
         this.routes.add(new Route("Painel de Login", "Painel de Login", new LoginPage(this).panelLogin));
-        this.routes.add(new Route("Cuidador", "Painel do Cuidador", new Cuidador().cuidadorPanel));
         this.routes.add(new Route("Usuarios", "Painel do Usuario", new Usuarios()));
     }
 

@@ -7,6 +7,7 @@ import com.AnormaisEBruna.petshop.gui.views.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class InitialPage implements UIScreen {
     public JPanel mainPanel;
@@ -186,7 +187,11 @@ public class InitialPage implements UIScreen {
         buttonCuidador.setHorizontalAlignment(SwingConstants.LEFT);
         buttonCuidador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCuidadorActionPerformed(evt);
+                try {
+                    buttonCuidadorActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -314,7 +319,7 @@ public class InitialPage implements UIScreen {
         setconfpanel(layouttypeservice);
     }
 
-    private void buttonCuidadorActionPerformed(java.awt.event.ActionEvent evt) {
+    private void buttonCuidadorActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         // TODO add your handling code here:
         Cuidador layoutcuidador = new Cuidador();
         mainPanel.removeAll();
