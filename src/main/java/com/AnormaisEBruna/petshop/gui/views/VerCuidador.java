@@ -1,11 +1,22 @@
 package com.AnormaisEBruna.petshop.gui.views;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+
 public class VerCuidador extends javax.swing.JPanel {
 
-    /**
-     * Creates new form visualizarCuidador
-     */
-    public VerCuidador() {
+    VerPet visualizarPet = new VerPet();
+
+    public void setconfpanel(JPanel p){
+        p.setSize(1024,1024);
+        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        cuidadorViewPanel.add(p);
+        cuidadorViewPanel.revalidate();
+        cuidadorViewPanel.repaint();
+    }
+    public VerCuidador() throws IOException {
         initComponents();
     }
 
@@ -24,8 +35,11 @@ public class VerCuidador extends javax.swing.JPanel {
         tabelaDosPets = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         sairButton = new javax.swing.JButton();
-        visualizarPet = new javax.swing.JButton();
+        visualizarPetButton = new javax.swing.JButton();
 
+
+        cuidadorViewPanel.setPreferredSize(new Dimension(1024,1024));
+        cuidadorViewPanel.setLayout(new FlowLayout());
         cuidadorViewPanel.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -55,7 +69,23 @@ public class VerCuidador extends javax.swing.JPanel {
 
         sairButton.setText("Sair");
 
-        visualizarPet.setText("Visualizar Pet");
+        sairButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    sairButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        visualizarPetButton.setText("Visualizar Pet");
+
+        visualizarPetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizarPetButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,7 +100,7 @@ public class VerCuidador extends javax.swing.JPanel {
                                                                 .addGap(124, 124, 124)
                                                                 .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(visualizarPet))
+                                                                .addComponent(visualizarPetButton))
                                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(199, 199, 199))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -87,7 +117,7 @@ public class VerCuidador extends javax.swing.JPanel {
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(sairButton)
-                                        .addComponent(visualizarPet))
+                                        .addComponent(visualizarPetButton))
                                 .addContainerGap(162, Short.MAX_VALUE))
         );
 
@@ -107,9 +137,20 @@ public class VerCuidador extends javax.swing.JPanel {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(5, Short.MAX_VALUE))
         );
-
         add(cuidadorViewPanel);
     }// </editor-fold>
+
+    private void visualizarPetButtonActionPerformed(ActionEvent evt) {
+        cuidadorViewPanel.removeAll();
+        setconfpanel(visualizarPet);
+    }
+
+    private void sairButtonActionPerformed(ActionEvent evt) throws IOException {
+        Cuidador layoutCuidador = new Cuidador();
+        cuidadorViewPanel.removeAll();
+        setconfpanel(layoutCuidador);
+
+    }
 
 
     // Variables declaration - do not modify
@@ -119,6 +160,6 @@ public class VerCuidador extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton sairButton;
     private javax.swing.JTable tabelaDosPets;
-    private javax.swing.JButton visualizarPet;
+    private javax.swing.JButton visualizarPetButton;
     // End of variables declaration
 }

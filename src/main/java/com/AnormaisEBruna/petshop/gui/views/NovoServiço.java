@@ -6,9 +6,13 @@ import java.awt.*;
 
 public class NovoServiço extends JPanel {
 
-    /**
-     * Creates new form NovoServiço
-     */
+    public void setconfpanel(JPanel p){
+        p.setSize(1024,1024);
+        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        novoServiçoPanel.add(p);
+        novoServiçoPanel.revalidate();
+        novoServiçoPanel.repaint();
+    }
     public NovoServiço() {
         initComponents();
     }
@@ -149,6 +153,10 @@ public class NovoServiço extends JPanel {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        TiposDeServiço layoutserviço = new TiposDeServiço();
+        JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+        novoServiçoPanel.removeAll();
+        setconfpanel(layoutserviço);
     }
 
 

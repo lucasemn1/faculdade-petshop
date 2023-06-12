@@ -54,7 +54,6 @@ public class VerPet extends javax.swing.JPanel {
         p.setLocation(0,0 ); // abre o painel já no local desejado
         VerPetPanel.add(p);
         VerPetPanel.revalidate();
-
         VerPetPanel.repaint();
     }
     /**

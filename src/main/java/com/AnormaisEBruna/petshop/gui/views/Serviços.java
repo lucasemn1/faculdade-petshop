@@ -1,6 +1,7 @@
 
 package com.AnormaisEBruna.petshop.gui.views;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -9,9 +10,6 @@ import java.awt.*;
  */
 public class Serviços extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Serviços
-     */
     public Serviços() {
         initComponents();
     }
