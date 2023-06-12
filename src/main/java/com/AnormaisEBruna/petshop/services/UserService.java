@@ -4,6 +4,7 @@ import com.AnormaisEBruna.petshop.exceptions.SQLException;
 import com.AnormaisEBruna.petshop.models.ClientModel;
 import com.AnormaisEBruna.petshop.models.PetModel;
 import com.AnormaisEBruna.petshop.models.UserModel;
+import com.AnormaisEBruna.petshop.repositories.PetRepository;
 import com.AnormaisEBruna.petshop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,12 +59,14 @@ public class UserService {
         }
 
     }
-    /*public void save(PetModel pet) throws SQLException {
+    @Autowired
+    PetRepository petRepository;
+    public void save(PetModel pet) throws SQLException {
         try {
-            this.userRepository.save(pet);
+            this.petRepository.save(pet);
         } catch (Exception error) {
             System.out.println(error.getMessage());
             throw new SQLException("Não foi possível salvar o pet");
         }
-    }*/
+    }
 }
