@@ -50,11 +50,11 @@ public class Cuidador  extends  JPanel{
         editButton = new javax.swing.JButton();
         visualizarButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1024,1024));
+        setPreferredSize(new java.awt.Dimension(1024,1060));
         setLayout(new FlowLayout());
 
         cuidadorPanel.setBackground(new java.awt.Color(255, 255, 255));
-        cuidadorPanel.setPreferredSize(new java.awt.Dimension(1024, 1024));
+        cuidadorPanel.setPreferredSize(new java.awt.Dimension(1024, 1060));
 
         cuidadorLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cuidadorLabel.setText("Cuidador");

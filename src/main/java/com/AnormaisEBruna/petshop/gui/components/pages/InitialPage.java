@@ -20,10 +20,7 @@ public class InitialPage implements UIScreen {
             JOptionPane.showMessageDialog(null, "Voce saiu");
             application.goToRoute("Painel de Login");
         });
-        /*this.buttonUser.addActionListener((event) ->{
-            application.goToRoute("Usuarios");
-            getsidebar();
-        });*/
+
     }
 
     @Override
@@ -42,8 +39,8 @@ public class InitialPage implements UIScreen {
     }
 
     public void setconfpanel(JPanel p){
-        p.setSize(2000,150000);
-        p.setLocation(210,0 ); // abre o painel já no local desejado
+        p.setSize(1024,1500);
+        p.setLocation(650,-30 ); // abre o painel já no local desejado
         mainPanel.add(p);
         mainPanel.revalidate();
         mainPanel.repaint();

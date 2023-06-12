@@ -44,10 +44,7 @@ public class VerCuidador extends javax.swing.JPanel {
 
         tabelaDosPets.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
+
                 },
                 new String [] {
                         "Id", "Nome Do Pet", "Raça"

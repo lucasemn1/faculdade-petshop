@@ -32,7 +32,10 @@ public class Serviços extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         combo = new javax.swing.JComboBox<>();
 
+        setPreferredSize(new java.awt.Dimension(1024, 1060));
+        setLayout(new FlowLayout());
         jPanel1.setBackground(new Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 1060));
 
         addServicoButton.setText("Adicionar");
         addServicoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -43,10 +46,7 @@ public class Serviços extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null},
-                        {null, null},
-                        {null, null},
-                        {null, null}
+
                 },
                 new String [] {
                         "Id", "Nome"
