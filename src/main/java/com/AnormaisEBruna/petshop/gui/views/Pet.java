@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,12 +21,11 @@ public class Pet extends JPanel {
     /**
      * Creates new form Pet
      */
-    Object nomepet,raçapet;
-    String[] nomecuidador={"Cuidador 0"}; //array que vai ser exibido no cadastro de pet
-    String guardarnomecuidador;
-    Object nomePetVer,raçaPetVer,nomeCuidadorVer;
-    String a,b,c;
+    String nomepet,raçapet,Id,NomeDoPet,NomeDoDono,RaçaPet;
+    List<String> nomecuidador = new ArrayList<>(); // array de nomes
+    String guardarnomecuidador; // nome exibido na lista
     int linha;
+
 
     public void setconfpanel(JPanel p){
         p.setSize(1440,1024);
@@ -36,14 +37,21 @@ public class Pet extends JPanel {
     public Pet() {
         initComponents();
     }
-    public void setnomepet(Object nomepet){
+    public void catchCuidadores(){
+        //Adiciona todos os nomes dos cuidadores
+        nomecuidador.add("pablo");
+        nomecuidador.add("Teste123");
+    }
+    public void setnomecuidador(int id){
+        // recebe o index e pega o objeto aqui na lista e passa pra a refreshtable exemplo
+        catchCuidadores(); // Utilizar pra o arraylist daqui atualizar e não dar outbounds quando receber informação de novopet
+        guardarnomecuidador= nomecuidador.get(id);
+    }
+    public void setnomepet(String nomepet){
         this.nomepet=nomepet;
     }
-    public void setraçapet(Object raçapet){
+    public void setraçapet(String raçapet){
         this.raçapet=raçapet;
-    }
-    public void setnomecuidador(String[] nomecuidador){
-        this.nomecuidador=nomecuidador;
     }
 
     public void refreshtable(){
@@ -51,6 +59,7 @@ public class Pet extends JPanel {
         Object[] dados = {"ID",nomepet,guardarnomecuidador,raçapet};
         tabelaPets.addRow(dados);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,15 +185,13 @@ public class Pet extends JPanel {
 
     private void ViewPetActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        linha = tabelaPets.getSelectedRow(); // pegar o numero da linha e verificar no banco de dados e pegar as informações para aqui
         if(linha != -1){
-            VerPet visualizarpet = new VerPet();
-            linha = tabelaPets.getSelectedRow(); // pegar o numero da linha e verificar no banco de dados e pegar as informações para aqui
-
-//           DefaultTableModel tabelaPets = (DefaultTableModel)this.tabelaPets.getModel();
-//           nomePetVer=tabelaPets.getValueAt(linha, 1);// nome pet
-//           nomeCuidadorVer=tabelaPets.getValueAt(linha, 2);// nome cuidador
-//           raçaPetVer=tabelaPets.getValueAt(linha, 3);// nome raça
-
+            Id= (String) tabelaPets.getValueAt(linha,0); // Para ser alterado depois para pegar apenas o ID e o restante das informações pegaria do banco de dados
+            NomeDoPet= (String) tabelaPets.getValueAt(linha,1); // nome do pet
+            NomeDoDono= (String) tabelaPets.getValueAt(linha,2); // nome cuidador
+            RaçaPet= (String) tabelaPets.getValueAt(linha,3); // raça pet
+            VerPet visualizarpet = new VerPet(NomeDoPet,NomeDoDono,RaçaPet);
             PetPanel.removeAll();
             setconfpanel(visualizarpet);
         }else{
@@ -200,6 +207,14 @@ public class Pet extends JPanel {
     private javax.swing.JButton ViewPet;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaPets;
+    javax.swing.JTable tabelaPets;
+
+    public List<String> nomecuidador(int selectedIndex) {
+        try {
+            return nomecuidador(selectedIndex);
+        } catch (NullPointerException e) {
+            return null;
+        }
+    }
     // End of variables declaration//GEN-END:variables
 }

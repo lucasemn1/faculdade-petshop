@@ -12,13 +12,17 @@ import javax.swing.*;
  */
 public class VerPet extends javax.swing.JPanel {
 
+
     /**
      * Creates new form VerPet
      */
-    String nomedopet="Polo",nomedocuidador="Pablo",nomedaraça="Spitz";
+    String nomedopet,nomedocuidador,nomedaraça;
 
 
-    public VerPet()  {
+    public VerPet(String nomedopet,String nomedocuidador,String nomedaraça)  {
+        this.nomedopet=nomedopet;
+        this.nomedocuidador=nomedocuidador;
+        this.nomedaraça=nomedaraça;
         try {
             initComponents();
         } catch (IOException e) {
@@ -56,6 +60,7 @@ public class VerPet extends javax.swing.JPanel {
         VerPetPanel.revalidate();
         VerPetPanel.repaint();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,19 +90,21 @@ public class VerPet extends javax.swing.JPanel {
         verFotoPet.setPreferredSize(new java.awt.Dimension(250, 250));
         verFotoPet.setLayout(new java.awt.BorderLayout());
 
-
-
+        System.out.println(nomedopet);
+        System.out.println(nomedaraça);
+        System.out.println(nomedocuidador);
         PetNameView.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PetNameView.setForeground(new java.awt.Color(0, 0, 0));
-        PetNameView.setText(nomedopet);
+        PetNameView.setText("Pet = "+nomedopet);
 
         racePet.setForeground(new java.awt.Color(0, 0, 0));
-        racePet.setText(nomedaraça);
+        racePet.setText("Raça = "+nomedaraça);
 
         CuidadorPetView.setForeground(new java.awt.Color(0, 0, 0));
-        CuidadorPetView.setText(nomedocuidador);
 
-        jTextField1.setText("Adicionar informações a respeito do pet");
+        CuidadorPetView.setText("Dono = "+nomedocuidador);
+
+        jTextField1.setText(" ");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("______________");
@@ -122,8 +129,8 @@ public class VerPet extends javax.swing.JPanel {
                                                                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addGroup(VerPetPanelLayout.createSequentialGroup()
                                                                         .addComponent(racePet)
-                                                                        .addGap(56, 56, 56)
-                                                                        .addComponent(CuidadorPetView, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                        .addGap(85, 85, 85)
+                                                                        .addComponent(CuidadorPetView, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addComponent(jTextField1))))
                                 .addContainerGap(388, Short.MAX_VALUE))
         );
