@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class VerCuidador extends javax.swing.JPanel {
 
-    VerPet visualizarPet = new VerPet();
+
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
@@ -141,8 +141,10 @@ public class VerCuidador extends javax.swing.JPanel {
     }// </editor-fold>
 
     private void visualizarPetButtonActionPerformed(ActionEvent evt) {
-        cuidadorViewPanel.removeAll();
-        setconfpanel(visualizarPet);
+        // Resolver depois
+//        VerPet visualizarPet = new VerPet();
+//        cuidadorViewPanel.removeAll();
+//        setconfpanel(visualizarPet);
     }
 
     private void sairButtonActionPerformed(ActionEvent evt) throws IOException {

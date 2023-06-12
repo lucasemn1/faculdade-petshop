@@ -183,17 +183,21 @@ public class EditarCuidador extends JPanel {
         // TODO add your handling code here:
         if(textFieldName.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Nome Invalido!");
-        }else if(textFieldEmail.getText().equals("")){
+        } else if(textFieldEmail.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Email Invalido!");
+        } else if(textFieldCidade.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Cidade Invalido!");
+        } else if(textFieldTelefone.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Telefone Invalido!");
         }else{
-            Cuidador layoutcuidador = new Cuidador();
-            JOptionPane.showMessageDialog(null,"Editado com Sucesso!");
-            layoutcuidador.setNome(labelName.getText());
-            layoutcuidador.setEmail(labelEmail.getText());
-            layoutcuidador.setEndereço(labelCidade.getText());
-            layoutcuidador.setTelefone(labelNumero.getText());
-            editarCuidadorPanel.removeAll();
+            Cuidador layoutcuidador =  new Cuidador();
+            JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+            layoutcuidador.setNome(textFieldName.getText());
+            layoutcuidador.setEmail(textFieldEmail.getText());
+            layoutcuidador.setEndereco(textFieldCidade.getText());
+            layoutcuidador.setTelefone(textFieldTelefone.getText());
             layoutcuidador.refreshtable();
+            editarCuidadorPanel.removeAll();
             setconfpanel(layoutcuidador);
         }
     }

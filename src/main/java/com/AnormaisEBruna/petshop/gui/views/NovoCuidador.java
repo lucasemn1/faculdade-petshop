@@ -206,15 +206,26 @@ public class NovoCuidador extends javax.swing.JPanel {
     }// </editor-fold>
 
     private void cadastrarButtonActionPerformed(ActionEvent evt) throws IOException {
-        Cuidador layoutcuidador =  new Cuidador();
-        JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
-        layoutcuidador.setNome(labelName.getText());
-        layoutcuidador.setEmail(labelEmail.getText());
-        layoutcuidador.setEndereço(labelCidade.getText());
-        layoutcuidador.setTelefone(labelNumero.getText());
-        layoutcuidador.refreshtable();
-        novoCuidadorPanel.removeAll();
-        setconfpanel(layoutcuidador);
+        if(texfielName.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Nome Invalido!");
+        } else if(textFieldEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Email Invalido!");
+        } else if(textFieldCidade.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Cidade Invalido!");
+        } else if(textFieldTelefone.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Telefone Invalido!");
+        }else{
+            Cuidador layoutcuidador =  new Cuidador();
+            JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+            layoutcuidador.setNome(texfielName.getText());
+            layoutcuidador.setEmail(textFieldEmail.getText());
+            layoutcuidador.setEndereco(textFieldCidade.getText());
+            layoutcuidador.setTelefone(textFieldTelefone.getText());
+            layoutcuidador.refreshtable();
+            novoCuidadorPanel.removeAll();
+            setconfpanel(layoutcuidador);
+        }
+
     }
 
 

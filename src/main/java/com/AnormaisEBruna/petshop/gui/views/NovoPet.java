@@ -4,8 +4,9 @@
  */
 package com.AnormaisEBruna.petshop.gui.views;
 
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.lang.reflect.Array;
+import java.util.List;
 
 /**
  *
@@ -26,6 +27,16 @@ public class NovoPet extends JPanel {
 
     public NovoPet() {
         initComponents();
+    }
+
+    public void adicionarCuidadoresComboBox(){
+        // FUNCIONA
+        Pet infopet = new Pet();
+        infopet.catchCuidadores(); // pega na database
+        int i;
+        for (i = 0; i < infopet.nomecuidador.size();i++){
+            CuidadorDoPet.addItem(infopet.nomecuidador.get(i));
+        }
     }
 
     /**
@@ -57,17 +68,6 @@ public class NovoPet extends JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Adicionar pet");
 
-        nomepet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomepetActionPerformed(evt);
-            }
-        });
-
-        raçapet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                raçapetActionPerformed(evt);
-            }
-        });
 
         adicionarpetbutton.setBackground(new java.awt.Color(0, 102, 204));
         adicionarpetbutton.setForeground(new java.awt.Color(255, 255, 255));
@@ -77,8 +77,11 @@ public class NovoPet extends JPanel {
                 adicionarpetbuttonActionPerformed(evt);
             }
         });
+        // COMBOBOXXXXXXXXXXXXXXXXX
+        CuidadorDoPet.setModel(new DefaultComboBoxModel<>());  // Combo BOX
+        adicionarCuidadoresComboBox(); // Adicionar componentes // Array De Cuidadores assim.
 
-        CuidadorDoPet.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         CuidadorDoPet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CuidadorDoPetActionPerformed(evt);
@@ -151,14 +154,6 @@ public class NovoPet extends JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nomepetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomepetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomepetActionPerformed
-
-    private void raçapetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raçapetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_raçapetActionPerformed
-
     private void adicionarpetbuttonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if(nomepet.getText().equals("")){
@@ -170,7 +165,7 @@ public class NovoPet extends JPanel {
             JOptionPane.showMessageDialog(null,"Pet adicionado com Sucesso!");
             layoutpet.setnomepet(nomepet.getText()); // seta  nome
             layoutpet.setraçapet(raçapet.getText()); // seta raça
-            layoutpet.guardarnomecuidador=layoutpet.nomecuidador[CuidadorDoPet.getSelectedIndex()]; // seta o nome do cuidador que foi selecionado
+            layoutpet.setnomecuidador(CuidadorDoPet.getSelectedIndex()); // passa o index "id" pra poder setar o cuidador no PET
             layoutpet.refreshtable();
             CadastroPetPanel.removeAll();
             setconfpanel(layoutpet);
@@ -179,6 +174,7 @@ public class NovoPet extends JPanel {
 
     private void CuidadorDoPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuidadorDoPetActionPerformed
         // TODO add your handling code here:
+        // tem que ter pra pegar o index que foi selecionado
     }//GEN-LAST:event_CuidadorDoPetActionPerformed
 
 

@@ -13,7 +13,7 @@ public class Cuidador  extends  JPanel{
     EditarCuidador editpage = new EditarCuidador();
     VerCuidador verpage = new VerCuidador();
 
-    Object nome,email,novonome,novoemail,endereço,telefone;
+    Object nome,email,endereco,telefone;
 
 
     /**
@@ -80,7 +80,7 @@ public class Cuidador  extends  JPanel{
 
                 },
                 new String [] {
-                        "ID", "Nome", "Email", "Endereço", "Telefone"
+                        "ID", "Nome", "Email", "endereco", "Telefone"
                 }
         ));
         tabelaCuidadores.setToolTipText("");
@@ -176,7 +176,6 @@ public class Cuidador  extends  JPanel{
     }
 
     private void editButtonActionPerformed(ActionEvent evt) {
-        DefaultTableModel tablecuidadores = (DefaultTableModel) tabelaCuidadores.getModel();
         if(tabelaCuidadores.getSelectedRow() != -1){
             cuidadorPanel.removeAll();
             setconfpanel(editpage);
@@ -186,20 +185,23 @@ public class Cuidador  extends  JPanel{
     }
 
     private void visualizarButtonActionPerformed(ActionEvent evt) {
-        cuidadorPanel.removeAll();
-        setconfpanel(verpage);
+        if(tabelaCuidadores.getSelectedRow() != -1){
+            cuidadorPanel.removeAll();
+            setconfpanel(verpage);
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um cuidador para Visualizar");
+        }
     }
 
     private void novoCuidadorButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         cuidadorPanel.removeAll();
         setconfpanel(cadastropage);
-
     }
     // atualiza os dados antes de voltar para essa pagina.
     public void refreshtable(){
         DefaultTableModel tablecuidadores = (DefaultTableModel) tabelaCuidadores.getModel();
-        Object[] dados = {"ID",nome,email,endereço,telefone};
+        Object[] dados = {"ID",nome,email,endereco,telefone};
         tablecuidadores.addRow(dados);
     }
     public void setNome(Object nome){
@@ -209,7 +211,7 @@ public class Cuidador  extends  JPanel{
         this.email=email;
     }
     public void setTelefone(Object telefone){this.telefone=telefone; }
-    public void setEndereço(Object endereço){this.endereço=endereço; }
+    public void setEndereco(Object endereco){this.endereco=endereco; }
 
 
 

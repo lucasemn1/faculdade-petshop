@@ -47,26 +47,11 @@ public class NovoUsuario extends JPanel {
     
             jLabel5.setText("E-mail");
     
-            senhacadastrousuario.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    senhacadastrousuarioActionPerformed(evt);
-                }
-            });
+
     
             jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
             jLabel1.setText("Cadastrar Novo Usuário");
-    
-            cadastronomeusuario.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    cadastronomeusuarioActionPerformed(evt);
-                }
-            });
-    
-            emailcadastrousuario.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    emailcadastrousuarioActionPerformed(evt);
-                }
-            });
+
     
             cadastrarusuariobutton.setBackground(new java.awt.Color(0, 102, 204));
             cadastrarusuariobutton.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,19 +123,7 @@ public class NovoUsuario extends JPanel {
             );
         }// </editor-fold>                        
         
-    
-        private void senhacadastrousuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-            // TODO add your handling code here:
-        }                                                    
-    
-        private void cadastronomeusuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-            // TODO add your handling code here:
-        }                                                   
-    
-        private void emailcadastrousuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-            // TODO add your handling code here:
-        }                                                    
-    
+
         private void cadastrarusuariobuttonActionPerformed(java.awt.event.ActionEvent evt) {                                                       
             // TODO add your handling code here:
             if(cadastronomeusuario.getText().equals("")){
