@@ -24,6 +24,7 @@ public class LoginPage implements UIScreen {
         this.loginButton.addActionListener((event) -> {
             JOptionPane.showMessageDialog(null, "Valid User");
             application.goToRoute("Painel Principal");
+
         });
     }
 

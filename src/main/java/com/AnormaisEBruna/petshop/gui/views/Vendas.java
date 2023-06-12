@@ -37,10 +37,11 @@ public class Vendas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
-        setPreferredSize(new Dimension(1024, 1024));
+        setPreferredSize(new Dimension(1024, 1060));
         setLayout(new FlowLayout());
 
         jPanel1.setBackground(new Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 1060));
 
         novoProdutoButton.setText("Adicionar Produto");
         novoProdutoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,10 +53,7 @@ public class Vendas extends javax.swing.JPanel {
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
+
                 },
                 new String [] {
                         "Id", "Produto", "Preço"

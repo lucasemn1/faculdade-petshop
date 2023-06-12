@@ -46,11 +46,11 @@ public class Usuarios extends JPanel{
         jScrollPane1 = new JScrollPane();
         tabelaUsuarios = new JTable();
 
-        setPreferredSize(new Dimension(1024, 1024));
+        setPreferredSize(new Dimension(1024, 1060));
         setLayout(new FlowLayout());
 
         usuariosPanel.setBackground(new Color(255, 255, 255));
-        usuariosPanel.setPreferredSize(new Dimension(1024, 1024));
+        usuariosPanel.setPreferredSize(new Dimension(1024, 1060));
 
         jLabel4.setFont(new Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Usuários");
