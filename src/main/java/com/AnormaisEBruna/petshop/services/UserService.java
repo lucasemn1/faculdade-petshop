@@ -1,10 +1,14 @@
 package com.AnormaisEBruna.petshop.services;
 
 import com.AnormaisEBruna.petshop.exceptions.SQLException;
+import com.AnormaisEBruna.petshop.models.ClientModel;
+import com.AnormaisEBruna.petshop.models.PetModel;
 import com.AnormaisEBruna.petshop.models.UserModel;
 import com.AnormaisEBruna.petshop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,4 +50,20 @@ public class UserService {
             throw new SQLException("Não foi possível salvar o usuário");
         }
     }
+    public void delete(Integer id) throws SQLException{
+        try{
+            this.userRepository.deleteById(id);
+        }catch (Exception error){
+            throw new SQLException("Usúario não encontrado");
+        }
+
+    }
+    /*public void save(PetModel pet) throws SQLException {
+        try {
+            this.userRepository.save(pet);
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+            throw new SQLException("Não foi possível salvar o pet");
+        }
+    }*/
 }
