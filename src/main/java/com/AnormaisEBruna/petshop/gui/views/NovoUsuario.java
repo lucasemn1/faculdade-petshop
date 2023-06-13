@@ -8,7 +8,7 @@ public class NovoUsuario extends JPanel {
 
         public void setconfpanel(JPanel p){
             p.setSize(1024,1024);
-            p.setLocation(0,0 ); // setlocation 0 p ser no meio da tela
+            p.setLocation(0,0); // setlocation 0 p ser no meio da tela
             CadastroUsuarioPanel.add(p);
             CadastroUsuarioPanel.revalidate();
             CadastroUsuarioPanel.repaint();
