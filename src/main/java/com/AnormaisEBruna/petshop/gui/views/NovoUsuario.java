@@ -1,10 +1,17 @@
 package com.AnormaisEBruna.petshop.gui.views;
 
 import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
+import com.AnormaisEBruna.petshop.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ConfigurableBootstrapContext;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class NovoUsuario extends JPanel {
+    @Autowired
+    private UserService service;
 
         public void setconfpanel(JPanel p){
             p.setSize(1024,1024);
@@ -155,5 +162,10 @@ public class NovoUsuario extends JPanel {
         private JScrollBar jScrollBar1;
         private JPasswordField senhacadastrousuario;
         // End of variables declaration                   
+
+   /* ConfigurableBootstrapContext ctx = new SpringApplicationBuilder(NovoUsuario.class){
+        NovoUsuario users = ctx.get(NovoUsuario.class);
+        users.setVisible(true);
+    };*/
 
 }
