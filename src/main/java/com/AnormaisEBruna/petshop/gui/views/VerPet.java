@@ -53,13 +53,7 @@ public class VerPet extends javax.swing.JPanel {
         }
     }
 
-    public void setconfpanel(JPanel p){
-        p.setSize(1440,1024);
-        p.setLocation(0,0 ); // abre o painel já no local desejado
-        VerPetPanel.add(p);
-        VerPetPanel.revalidate();
-        VerPetPanel.repaint();
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,9 +84,7 @@ public class VerPet extends javax.swing.JPanel {
         verFotoPet.setPreferredSize(new java.awt.Dimension(250, 250));
         verFotoPet.setLayout(new java.awt.BorderLayout());
 
-        System.out.println(nomedopet);
-        System.out.println(nomedaraça);
-        System.out.println(nomedocuidador);
+
         PetNameView.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PetNameView.setForeground(new java.awt.Color(0, 0, 0));
         PetNameView.setText("Pet = "+nomedopet);

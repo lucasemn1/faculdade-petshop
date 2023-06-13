@@ -11,9 +11,9 @@ import java.io.IOException;
 public class Cuidador  extends  JPanel{
     NovoCuidador cadastropage = new NovoCuidador();
     EditarCuidador editpage = new EditarCuidador();
-    VerCuidador verpage = new VerCuidador();
 
-    Object nome,email,endereco,telefone;
+
+    Object nome,email,endereco,telefone,nomeDoDono;
 
 
     /**
@@ -101,7 +101,11 @@ public class Cuidador  extends  JPanel{
         visualizarButton.setMinimumSize(new java.awt.Dimension(75, 22));
         visualizarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visualizarButtonActionPerformed(evt);
+                try {
+                    visualizarButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -184,8 +188,13 @@ public class Cuidador  extends  JPanel{
         }
     }
 
-    private void visualizarButtonActionPerformed(ActionEvent evt) {
+    private void visualizarButtonActionPerformed(ActionEvent evt) throws IOException {
+
+        int linha;
+        linha = tabelaCuidadores.getSelectedRow();
         if(tabelaCuidadores.getSelectedRow() != -1){
+            nomeDoDono= tabelaCuidadores.getValueAt(linha,1);
+            VerCuidador verpage = new VerCuidador((String) nomeDoDono);
             cuidadorPanel.removeAll();
             setconfpanel(verpage);
         }else{

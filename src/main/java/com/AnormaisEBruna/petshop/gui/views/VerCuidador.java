@@ -6,18 +6,20 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class VerCuidador extends javax.swing.JPanel {
-
+    String nomedocuidador;
 
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
-        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        p.setLocation(0,0 ); // setlocation 0 p ser no meio da tela
         cuidadorViewPanel.add(p);
         cuidadorViewPanel.revalidate();
         cuidadorViewPanel.repaint();
     }
-    public VerCuidador() throws IOException {
+    public VerCuidador(String nomedocuidador) throws IOException {
+        this.nomedocuidador=nomedocuidador;
         initComponents();
+
     }
 
     /**
@@ -73,7 +75,7 @@ public class VerCuidador extends javax.swing.JPanel {
         }
 
         labelNomeDoCuidador.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelNomeDoCuidador.setText("Nome Do Cuidador");
+        labelNomeDoCuidador.setText(nomedocuidador.toUpperCase());  //
 
         sairButton.setText("Voltar");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -146,16 +148,19 @@ public class VerCuidador extends javax.swing.JPanel {
 
     private void visualizarPetButtonActionPerformed(ActionEvent evt) {
         // Resolver depois
-//        VerPet visualizarPet = new VerPet();
-//        cuidadorViewPanel.removeAll();
-//        setconfpanel(visualizarPet);
+        int linha;
+        linha=tabelaDosPets.getSelectedRow();
+        if(linha != -1){
+
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um pet para visualizar");
+        }
     }
 
     private void sairButtonActionPerformed(ActionEvent evt) throws IOException {
         Cuidador layoutCuidador = new Cuidador();
         cuidadorViewPanel.removeAll();
         setconfpanel(layoutCuidador);
-
     }
 
 
