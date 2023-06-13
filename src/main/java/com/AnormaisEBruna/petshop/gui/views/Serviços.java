@@ -4,11 +4,14 @@ package com.AnormaisEBruna.petshop.gui.views;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.awt.SystemColor.text;
+
 /**
  *
  * @author bielf
  */
 public class Serviços extends javax.swing.JPanel {
+
 
     public Serviços() {
         initComponents();
@@ -79,7 +82,8 @@ public class Serviços extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Serviços");
 
-        combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo.setModel(new DefaultComboBoxModel<>());
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,7 +136,6 @@ public class Serviços extends javax.swing.JPanel {
     private void addServicoButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
 
     // Variables declaration - do not modify
     private javax.swing.JButton addServicoButton;

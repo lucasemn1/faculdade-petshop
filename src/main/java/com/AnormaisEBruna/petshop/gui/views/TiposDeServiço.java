@@ -145,7 +145,6 @@ public class TiposDeServiço extends JPanel {
         setconfpanel(cadastrarservico);
     }
 
-
     // Variables declaration - do not modify                     
     private javax.swing.JButton editarButton;
     private javax.swing.JButton excluirButton;

@@ -139,7 +139,7 @@ public class NovoUsuario extends JPanel {
                 layoutusuario.setNome(cadastronomeusuario.getText());
                 layoutusuario.refreshtable();
                 CadastroUsuarioPanel.removeAll();
-                setconfpanel(layoutusuario);   
+                setconfpanel(layoutusuario);
             }
         }                                                      
         
