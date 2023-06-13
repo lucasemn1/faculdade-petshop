@@ -61,8 +61,6 @@ public class NovoServiço extends JPanel {
         labelPreço.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelPreço.setText("Preço");
 
-        textFieldPreço.setActionCommand("<Not Set>");
-        textFieldPreço.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         labelPet.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelPet.setText("Pet");
@@ -153,10 +151,25 @@ public class NovoServiço extends JPanel {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        TiposDeServiço layoutserviço = new TiposDeServiço();
-        JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
-        novoServiçoPanel.removeAll();
-        setconfpanel(layoutserviço);
+
+
+        if(textFieldPet.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Qualidade Invalida!");
+        }else if(textFieldNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Nome Invalida!");
+        }else if(textFieldPreço.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Preço Invalida!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+            TiposDeServiço layoutserviço = new TiposDeServiço();
+            layoutserviço.setServiço(textFieldNome.getText());
+            layoutserviço.setPreço(textFieldPreço.getText());
+            novoServiçoPanel.removeAll();
+            layoutserviço.refreshtable();
+            setconfpanel(layoutserviço);
+
+        }
+
     }
 
 
