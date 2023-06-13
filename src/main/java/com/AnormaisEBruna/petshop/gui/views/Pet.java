@@ -21,9 +21,16 @@ public class Pet extends JPanel {
     /**
      * Creates new form Pet
      */
-    String nomepet,raçapet,Id,NomeDoPet,NomeDoDono,RaçaPet;
-    List<String> nomecuidador = new ArrayList<>(); // array de nomes
-    String guardarnomecuidador; // nome exibido na lista
+    int contador=0;
+    String nomepet,raçapet;
+    String Id,NomeDoPet,NomeDoDono,RaçaPet; // dados para ver pet
+    String nomecuidador;
+    List<String> raça = new ArrayList<>();
+    List<String> pets = new ArrayList<>(); // arraypet
+    List<String> cuidadores = new ArrayList<>(); // array de nomes
+
+    String guardarnomecuidador; // informações da tabela
+
     int linha;
 
 
@@ -36,16 +43,25 @@ public class Pet extends JPanel {
     }
     public Pet() {
         initComponents();
+        loadtable();
+    }
+    public void catchPets(){
+        pets.add("Polo");
+        pets.add("Perola");
+    }
+    public void catchRaça(){
+        raça.add("Spitz");
+        raça.add("Lulu da pomerania");
     }
     public void catchCuidadores(){
         //Adiciona todos os nomes dos cuidadores
-        nomecuidador.add("pablo");
-        nomecuidador.add("Teste123");
+        cuidadores.add("pablo");
+        cuidadores.add("pamela");
     }
     public void setnomecuidador(int id){
         // recebe o index e pega o objeto aqui na lista e passa pra a refreshtable exemplo
         catchCuidadores(); // Utilizar pra o arraylist daqui atualizar e não dar outbounds quando receber informação de novopet
-        guardarnomecuidador= nomecuidador.get(id);
+        guardarnomecuidador= cuidadores.get(id);
     }
     public void setnomepet(String nomepet){
         this.nomepet=nomepet;
@@ -54,11 +70,34 @@ public class Pet extends JPanel {
         this.raçapet=raçapet;
     }
 
+    public void loadtable(){
+        catchPets();
+        catchRaça();
+        catchCuidadores();
+        DefaultTableModel tabelaPets = (DefaultTableModel)this.tabelaPets.getModel();
+        int i;
+        if(contador>0){
+            for (i = contador+1; i < pets.size();i++){
+                Object[] dados = {"ID",pets.get(i),cuidadores.get(i),"Spitz"};
+                tabelaPets.addRow(dados);
+            }
+        }else{
+            for (i = 0; i < pets.size();i++){
+                Object[] dados = {"ID",pets.get(i),cuidadores.get(i),"Spitz"};
+                tabelaPets.addRow(dados);
+            }
+        }
+        contador++;
+    }
     public void refreshtable(){
         DefaultTableModel tabelaPets = (DefaultTableModel)this.tabelaPets.getModel();
         Object[] dados = {"ID",nomepet,guardarnomecuidador,raçapet};
+        pets.add(nomepet);
+        raça.add(raçapet);
+
         tabelaPets.addRow(dados);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,11 +117,11 @@ public class Pet extends JPanel {
         ViewPet = new javax.swing.JButton();
 
 
-        setPreferredSize(new java.awt.Dimension(1024, 1024));
+        setPreferredSize(new java.awt.Dimension(1024, 1060));
         setLayout(new FlowLayout());
 
         PetPanel.setBackground(new java.awt.Color(255, 255, 255));
-        PetPanel.setPreferredSize(new java.awt.Dimension(1024, 1024));
+        PetPanel.setPreferredSize(new java.awt.Dimension(1024, 1060));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Pets");
@@ -159,6 +198,7 @@ public class Pet extends JPanel {
                                 .addContainerGap(364, Short.MAX_VALUE))
         );
         PetPanel.setBounds(0,0,-1,-1);
+
         add(PetPanel);
     }// </editor-fold>
 
@@ -179,15 +219,13 @@ public class Pet extends JPanel {
         }else{
             JOptionPane.showMessageDialog(null,"Selecione um pet para editar");
         }
-
-
     }
 
     private void ViewPetActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        linha = tabelaPets.getSelectedRow(); // pegar o numero da linha e verificar no banco de dados e pegar as informações para aqui
+        linha = tabelaPets.getSelectedRow(); // pegar o numero da linha
         if(linha != -1){
-            Id= (String) tabelaPets.getValueAt(linha,0); // Para ser alterado depois para pegar apenas o ID e o restante das informações pegaria do banco de dados
+            Id= (String) tabelaPets.getValueAt(linha,0);
             NomeDoPet= (String) tabelaPets.getValueAt(linha,1); // nome do pet
             NomeDoDono= (String) tabelaPets.getValueAt(linha,2); // nome cuidador
             RaçaPet= (String) tabelaPets.getValueAt(linha,3); // raça pet
@@ -209,12 +247,6 @@ public class Pet extends JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     javax.swing.JTable tabelaPets;
 
-    public List<String> nomecuidador(int selectedIndex) {
-        try {
-            return nomecuidador(selectedIndex);
-        } catch (NullPointerException e) {
-            return null;
-        }
-    }
+
     // End of variables declaration//GEN-END:variables
 }

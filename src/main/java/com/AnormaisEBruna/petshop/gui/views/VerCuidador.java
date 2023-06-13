@@ -6,18 +6,23 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class VerCuidador extends javax.swing.JPanel {
-
+    String nomedocuidador,emaildocuidador,endereçodocuidado,telefonedocuidador;
 
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
-        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        p.setLocation(0,0 ); // setlocation 0 p ser no meio da tela
         cuidadorViewPanel.add(p);
         cuidadorViewPanel.revalidate();
         cuidadorViewPanel.repaint();
     }
-    public VerCuidador() throws IOException {
+    public VerCuidador(String nomedocuidador,String emaildocuidador,String endereçodocuidado, String telefonedocuidador) throws IOException {
+        this.emaildocuidador=emaildocuidador;
+        this.endereçodocuidado=endereçodocuidado;
+        this.telefonedocuidador=telefonedocuidador;
+        this.nomedocuidador=nomedocuidador;
         initComponents();
+
     }
 
     /**
@@ -33,10 +38,9 @@ public class VerCuidador extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaDosPets = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        labelNomeDoCuidador = new javax.swing.JLabel();
         sairButton = new javax.swing.JButton();
         visualizarPetButton = new javax.swing.JButton();
-
 
         cuidadorViewPanel.setPreferredSize(new Dimension(1024,1024));
         cuidadorViewPanel.setLayout(new FlowLayout());
@@ -45,10 +49,7 @@ public class VerCuidador extends javax.swing.JPanel {
 
         tabelaDosPets.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
+
                 },
                 new String [] {
                         "Id", "Nome Do Pet", "Raça"
@@ -57,18 +58,30 @@ public class VerCuidador extends javax.swing.JPanel {
             Class[] types = new Class [] {
                     java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                    false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
         jScrollPane1.setViewportView(tabelaDosPets);
+        if (tabelaDosPets.getColumnModel().getColumnCount() > 0) {
+            tabelaDosPets.getColumnModel().getColumn(0).setResizable(false);
+            tabelaDosPets.getColumnModel().getColumn(1).setResizable(false);
+            tabelaDosPets.getColumnModel().getColumn(2).setResizable(false);
+        }
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Nome Do Cuidador");
+        labelNomeDoCuidador.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelNomeDoCuidador.setText("Cuidador = "+nomedocuidador.toUpperCase());  //
 
-        sairButton.setText("Sair");
 
+        sairButton.setText("Voltar");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
@@ -80,7 +93,6 @@ public class VerCuidador extends javax.swing.JPanel {
         });
 
         visualizarPetButton.setText("Visualizar Pet");
-
         visualizarPetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visualizarPetButtonActionPerformed(evt);
@@ -92,72 +104,78 @@ public class VerCuidador extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(205, Short.MAX_VALUE)
+                                .addGap(369, 369, 369)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGap(124, 124, 124)
-                                                                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(visualizarPetButton))
-                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(199, 199, 199))
+                                                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(visualizarPetButton))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(244, 244, 244))))
+                                                .addComponent(labelNomeDoCuidador)
+                                                .addGap(45, 45, 45)))
+                                .addContainerGap(375, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(92, 92, 92)
-                                .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(labelNomeDoCuidador)
                                 .addGap(33, 33, 33)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(sairButton)
                                         .addComponent(visualizarPetButton))
-                                .addContainerGap(162, Short.MAX_VALUE))
+                                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cuidadorViewPanelLayout = new javax.swing.GroupLayout(cuidadorViewPanel);
         cuidadorViewPanel.setLayout(cuidadorViewPanelLayout);
         cuidadorViewPanelLayout.setHorizontalGroup(
                 cuidadorViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(cuidadorViewPanelLayout.createSequentialGroup()
-                                .addContainerGap(529, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cuidadorViewPanelLayout.createSequentialGroup()
+                                .addContainerGap(523, Short.MAX_VALUE)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(512, 512, 512))
+                                .addGap(503, 503, 503))
         );
         cuidadorViewPanelLayout.setVerticalGroup(
                 cuidadorViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(cuidadorViewPanelLayout.createSequentialGroup()
                                 .addGap(0, 0, 0)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(5, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
         add(cuidadorViewPanel);
     }// </editor-fold>
 
     private void visualizarPetButtonActionPerformed(ActionEvent evt) {
         // Resolver depois
-//        VerPet visualizarPet = new VerPet();
-//        cuidadorViewPanel.removeAll();
-//        setconfpanel(visualizarPet);
+        int linha;
+        linha=tabelaDosPets.getSelectedRow();
+        if(linha != -1){
+
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecione um pet para visualizar");
+        }
     }
 
     private void sairButtonActionPerformed(ActionEvent evt) throws IOException {
         Cuidador layoutCuidador = new Cuidador();
         cuidadorViewPanel.removeAll();
+        layoutCuidador.setNome(nomedocuidador);
+        layoutCuidador.setEmail(emaildocuidador);
+        layoutCuidador.setEndereco(endereçodocuidado);
+        layoutCuidador.setTelefone(telefonedocuidador);
+        layoutCuidador.refreshtable();
         setconfpanel(layoutCuidador);
-
     }
 
 
     // Variables declaration - do not modify
     private javax.swing.JPanel cuidadorViewPanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelNomeDoCuidador;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton sairButton;

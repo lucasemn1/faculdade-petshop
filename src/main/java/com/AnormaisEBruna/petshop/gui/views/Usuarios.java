@@ -20,7 +20,7 @@ public class Usuarios extends JPanel{
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
-        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        p.setLocation(0,0); // setlocation 0 p ser no meio da tela
         usuariosPanel.add(p);
         usuariosPanel.revalidate();
         usuariosPanel.repaint();
@@ -46,11 +46,11 @@ public class Usuarios extends JPanel{
         jScrollPane1 = new JScrollPane();
         tabelaUsuarios = new JTable();
 
-        setPreferredSize(new Dimension(1024, 1024));
+        setPreferredSize(new Dimension(1024, 1060));
         setLayout(new FlowLayout());
 
         usuariosPanel.setBackground(new Color(255, 255, 255));
-        usuariosPanel.setPreferredSize(new Dimension(1024, 1024));
+        usuariosPanel.setPreferredSize(new Dimension(1024, 1060));
 
         jLabel4.setFont(new Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Usuários");
@@ -137,12 +137,7 @@ public class Usuarios extends JPanel{
         add(usuariosPanel);
     }// </editor-fold>
 
-    private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        usuariosPanel.removeAll();
-        setconfpanel(cadastropage);
 
-    }
     // atualiza os dados antes de voltar para essa pagina.
     public void refreshtable(){
         DefaultTableModel tabelaUsuario = (DefaultTableModel) tabelaUsuarios.getModel();
@@ -159,16 +154,15 @@ public class Usuarios extends JPanel{
         DefaultTableModel tabelaUsuario = (DefaultTableModel) tabelaUsuarios.getModel();
         tabelaUsuario.setValueAt(novonome, tabelaUsuarios.getSelectedRow(), 0);
         tabelaUsuario.setValueAt(novoemail, tabelaUsuarios.getSelectedRow(), 1);
-        tabelaUsuario.setValueAt("agr",tabelaUsuarios.getSelectedRow(),2);
+        tabelaUsuario.setValueAt("indisponivel",tabelaUsuarios.getSelectedRow(),2);
 
     }
-    public void setNovoNome(Object novonome){
-        this.novonome=novonome;
-    }
-    public void setNovoEmail(Object novoemail){
-        this.novoemail=novoemail;
-    }
 
+    private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        usuariosPanel.removeAll();
+        setconfpanel(cadastropage);
+    }
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if(tabelaUsuarios.getSelectedRow() != -1){

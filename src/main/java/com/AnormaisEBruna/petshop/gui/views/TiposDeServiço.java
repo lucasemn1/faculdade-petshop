@@ -13,7 +13,7 @@ public class TiposDeServiço extends JPanel {
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
-        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        p.setLocation(0,0 ); // setlocation 0 p ser no meio da tela
         serviceTypePanel.add(p);
         serviceTypePanel.revalidate();
         serviceTypePanel.repaint();
@@ -41,11 +41,11 @@ public class TiposDeServiço extends JPanel {
         jLabel1 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
-        setPreferredSize(new Dimension(1024, 1024));
+        setPreferredSize(new Dimension(1024, 1060));
         setLayout(new FlowLayout());
 
         serviceTypePanel.setBackground(new Color(255, 255, 255));
-        serviceTypePanel.setPreferredSize(new Dimension(1024, 1024));
+        serviceTypePanel.setPreferredSize(new Dimension(1024, 1060));
 
         novoServicoButton.setText("Novo Serviço");
         novoServicoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -56,10 +56,7 @@ public class TiposDeServiço extends JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
+
                 },
                 new String [] {
                         "Id", "Serviço", "Preço"
@@ -147,7 +144,6 @@ public class TiposDeServiço extends JPanel {
         serviceTypePanel.removeAll();
         setconfpanel(cadastrarservico);
     }
-
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton editarButton;

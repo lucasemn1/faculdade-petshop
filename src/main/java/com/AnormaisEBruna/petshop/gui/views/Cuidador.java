@@ -11,9 +11,9 @@ import java.io.IOException;
 public class Cuidador  extends  JPanel{
     NovoCuidador cadastropage = new NovoCuidador();
     EditarCuidador editpage = new EditarCuidador();
-    VerCuidador verpage = new VerCuidador();
 
-    Object nome,email,endereco,telefone;
+
+    Object nome,email,endereco,telefone,nomeDoDono,emailDoDono,endereçoDoDono,telefoneDoDono;
 
 
     /**
@@ -50,11 +50,11 @@ public class Cuidador  extends  JPanel{
         editButton = new javax.swing.JButton();
         visualizarButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(1024,1024));
+        setPreferredSize(new java.awt.Dimension(1024,1060));
         setLayout(new FlowLayout());
 
         cuidadorPanel.setBackground(new java.awt.Color(255, 255, 255));
-        cuidadorPanel.setPreferredSize(new java.awt.Dimension(1024, 1024));
+        cuidadorPanel.setPreferredSize(new java.awt.Dimension(1024, 1060));
 
         cuidadorLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cuidadorLabel.setText("Cuidador");
@@ -101,7 +101,11 @@ public class Cuidador  extends  JPanel{
         visualizarButton.setMinimumSize(new java.awt.Dimension(75, 22));
         visualizarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visualizarButtonActionPerformed(evt);
+                try {
+                    visualizarButtonActionPerformed(evt);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -184,8 +188,15 @@ public class Cuidador  extends  JPanel{
         }
     }
 
-    private void visualizarButtonActionPerformed(ActionEvent evt) {
+    private void visualizarButtonActionPerformed(ActionEvent evt) throws IOException {
+        int linha;
+        linha = tabelaCuidadores.getSelectedRow();
         if(tabelaCuidadores.getSelectedRow() != -1){
+            nomeDoDono= tabelaCuidadores.getValueAt(linha,1);
+            emailDoDono= tabelaCuidadores.getValueAt(linha,2);
+            endereçoDoDono= tabelaCuidadores.getValueAt(linha,3);
+            telefoneDoDono= tabelaCuidadores.getValueAt(linha,4);
+            VerCuidador verpage = new VerCuidador((String) nomeDoDono, (String) emailDoDono, (String) endereçoDoDono, (String) telefoneDoDono);
             cuidadorPanel.removeAll();
             setconfpanel(verpage);
         }else{

@@ -30,12 +30,10 @@ public class NovoPet extends JPanel {
     }
 
     public void adicionarCuidadoresComboBox(){
-        // FUNCIONA
         Pet infopet = new Pet();
-        infopet.catchCuidadores(); // pega na database
         int i;
-        for (i = 0; i < infopet.nomecuidador.size();i++){
-            CuidadorDoPet.addItem(infopet.nomecuidador.get(i));
+        for (i = 0; i < infopet.cuidadores.size();i++){
+            CuidadorDoPet.addItem(infopet.cuidadores.get(i));
         }
     }
 
