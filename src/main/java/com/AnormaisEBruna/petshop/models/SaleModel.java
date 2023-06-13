@@ -1,9 +1,12 @@
 package com.AnormaisEBruna.petshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "sales")
+@JsonIgnoreProperties({"user"})
 public class SaleModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,7 +14,7 @@ public class SaleModel {
     private float price;
     private long timestamp;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id", referencedColumnName = "id")
     private UserModel user;
 

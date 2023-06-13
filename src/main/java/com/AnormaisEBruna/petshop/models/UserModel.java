@@ -1,20 +1,22 @@
 package com.AnormaisEBruna.petshop.models;
 
-import com.AnormaisEBruna.petshop.utils.Sha256PasswordEncoder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties({"clients"})
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private String email;
+    @JsonIgnore
     private String password;
 
     @OneToMany(mappedBy = "registeredBy", fetch = FetchType.EAGER)
@@ -36,11 +38,7 @@ public class UserModel {
     }
 
     public void setPassword(String password) {
-        this.password  = new Sha256PasswordEncoder().encode(password);
-    }
-
-    public boolean isValidPassword(String password) {
-        return new Sha256PasswordEncoder().matches(password, this.password);
+        this.password  = password;
     }
 
     public Integer getId() {

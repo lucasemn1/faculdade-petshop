@@ -1,5 +1,7 @@
 package com.AnormaisEBruna.petshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -7,16 +9,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "clients")
+@JsonIgnoreProperties({"address", "registeredBy", "pets"})
 public class ClientModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private String email;
-    private String photoUrl;
     private String phoneNumber;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "addresses_id", referencedColumnName = "id")
     private AddressModel address;
 
@@ -35,7 +37,6 @@ public class ClientModel {
     public static ClientModel newInstance(
         String name,
         String email,
-        String photoUrl,
         String phoneNumber,
         AddressModel address,
         UserModel registeredBy
@@ -44,7 +45,6 @@ public class ClientModel {
 
         client.setName(name);
         client.setEmail(email);
-        client.setPhotoUrl(photoUrl);
         client.setPhoneNumber(phoneNumber);
         client.setAddress(address);
         client.setRegisteredBy(registeredBy);
@@ -77,13 +77,6 @@ public class ClientModel {
         this.email = email;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
-    }
-
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -123,7 +116,6 @@ public class ClientModel {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", photoUrl='" + photoUrl + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address=" + address +
                 ", registeredBy=" + registeredBy +

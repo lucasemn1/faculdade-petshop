@@ -1,11 +1,14 @@
 package com.AnormaisEBruna.petshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "provided_services")
+@JsonIgnoreProperties({"pet", "serviceType"})
 public class ProvidedServiceModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
