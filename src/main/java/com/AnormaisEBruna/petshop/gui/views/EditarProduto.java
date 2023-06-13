@@ -12,7 +12,7 @@ public class EditarProduto extends JPanel {
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
-        p.setLocation(0,0 ); // setlocation 0 p ser no meio da tela
+        p.setLocation(0,10 ); // setlocation 0 p ser no meio da tela
         editarProduto.add(p);
         editarProduto.revalidate();
         editarProduto.repaint();
@@ -125,8 +125,8 @@ public class EditarProduto extends JPanel {
         }else{
             Vendas vendas = new Vendas();
             JOptionPane.showMessageDialog(null,"Editado com Sucesso!");
-            vendas.setNovoNome(textFieldNome.getText());
-            vendas.setNovoPreço(textFieldPreço.getText());
+            vendas.setPreço(textFieldPreço.getText());
+            vendas.setProduto(textFieldNome.getText());
             vendas.refreshtable();
             editarProduto.removeAll();
             setconfpanel(vendas);

@@ -100,23 +100,11 @@ public class Vendas extends JPanel {
         jLabel1.setText("Vendas");
 
         jFormattedTextField1.setText("Produtos");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
-            }
-        });
-
         preçoField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        preçoField.setText("180,00");
-        preçoField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                preçoFieldActionPerformed(evt);
-            }
-        });
+
 
         labelTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         labelTotal.setText("Total :");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -167,7 +155,8 @@ public class Vendas extends JPanel {
     }// </editor-fold>
     public void refreshtable(){
         DefaultTableModel tabelaUsuario = (DefaultTableModel) tabelaProdutos.getModel();
-        Object[] dados = {"indisponivel",produto,preço};
+        Object[] dados = {"",produto,preço};
+        preçoField.setText((String) preço);
         tabelaUsuario.addRow(dados);
     }
     public void setProduto(Object produto){
@@ -177,29 +166,16 @@ public class Vendas extends JPanel {
         this.preço=preço;
     }
 
-    public void editTable(){
-        /*DefaultTableModel tabelaUsuario = (DefaultTableModel) tabelaProdutos.getModel();
-        tabelaUsuario.setValueAt(novonome, tabelaProdutos.getSelectedRow(), 0);
-        tabelaUsuario.setValueAt(novoemail, tabelaProdutos.getSelectedRow(), 1);
-        tabelaUsuario.setValueAt("agr",tabelaProdutos.getSelectedRow(),2);*/
-    }
-
     private void excluirButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if(tabelaProdutos.getSelectedRow() != -1){
             DefaultTableModel tabelaUsuario = (DefaultTableModel) tabelaProdutos.getModel();
             tabelaUsuario.removeRow(tabelaProdutos.getSelectedRow());
+            preçoField.setText("");
         }else{
             JOptionPane.showMessageDialog(null,"Selecione um produto para Excluir");
         }
     }
-    public void setNovoNome(Object novonome){
-        this.novonome= novonome;
-    }
-    public void setNovoPreço(Object novopreço){
-        this.novopreço=novopreço;
-    }
-
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         if(tabelaProdutos.getSelectedRow() != -1){
@@ -216,15 +192,6 @@ public class Vendas extends JPanel {
         setconfpanel(novoproduto);
 
     }
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void preçoFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
 
     // Variables declaration - do not modify
     private javax.swing.JButton editarButton;

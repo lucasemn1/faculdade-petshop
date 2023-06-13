@@ -7,7 +7,7 @@ public class NovoProduto extends javax.swing.JPanel {
 
     public void setconfpanel(JPanel p){
         p.setSize(1024,1024);
-        p.setLocation(0,-20 ); // setlocation 0 p ser no meio da tela
+        p.setLocation(0,10 ); // setlocation 0 p ser no meio da tela
         novoProduto.add(p);
         novoProduto.revalidate();
         novoProduto.repaint();
