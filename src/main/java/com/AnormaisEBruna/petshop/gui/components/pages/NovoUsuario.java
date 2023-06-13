@@ -1,13 +1,9 @@
-package com.AnormaisEBruna.petshop.gui.views;
+package com.AnormaisEBruna.petshop.gui.components.pages;
 
-import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
 import com.AnormaisEBruna.petshop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ConfigurableBootstrapContext;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class NovoUsuario extends JPanel {
     @Autowired

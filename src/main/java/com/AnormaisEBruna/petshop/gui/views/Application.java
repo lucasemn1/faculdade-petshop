@@ -1,14 +1,10 @@
 package com.AnormaisEBruna.petshop.gui.views;
 
 import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
-import com.AnormaisEBruna.petshop.gui.components.pages.InitialPage;
-import com.AnormaisEBruna.petshop.gui.components.pages.LoginPage;
 import com.AnormaisEBruna.petshop.utils.Route;
-import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -17,8 +13,15 @@ public class Application implements GUIManager {
     private ArrayList<Route> routes;
     public JFrame frame;
 
-    public Application() {
+    private LoginView loginPage;
+    private MainView mainView;
+
+    @Autowired
+    public Application(MainView mainView, LoginView loginPage) {
         FlatLightLaf.setup();
+
+        this.mainView = mainView;
+        this.loginPage = loginPage;
 
         this.loadRoutes();
 
@@ -29,9 +32,8 @@ public class Application implements GUIManager {
 
     private void loadRoutes() {
         this.routes = new ArrayList();
-        this.routes.add(new Route("Painel Principal", "Painel Principal", new InitialPage(this).mainPanel));
-        this.routes.add(new Route("Painel de Login", "Painel de Login", new LoginPage(this).panelLogin));
-
+        this.routes.add(new Route("MainView", "Painel Principal", mainView.getMainPanel()));
+        this.routes.add(new Route("LoginView", "Painel de Login", loginPage.getMainPanel()));
     }
 
     private Route getRouteInstance(String routeName) throws Exception {

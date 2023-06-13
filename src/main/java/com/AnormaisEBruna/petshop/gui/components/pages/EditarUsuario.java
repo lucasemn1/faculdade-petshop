@@ -1,9 +1,7 @@
-package com.AnormaisEBruna.petshop.gui.views;/*
+package com.AnormaisEBruna.petshop.gui.components.pages;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
-import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
 
 import javax.swing.*;
 

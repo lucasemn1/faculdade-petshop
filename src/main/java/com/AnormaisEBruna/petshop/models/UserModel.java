@@ -39,6 +39,10 @@ public class UserModel {
         this.password  = new Sha256PasswordEncoder().encode(password);
     }
 
+    public boolean isValidPassword(String password) {
+        return new Sha256PasswordEncoder().matches(password, this.password);
+    }
+
     public Integer getId() {
         return id;
     }

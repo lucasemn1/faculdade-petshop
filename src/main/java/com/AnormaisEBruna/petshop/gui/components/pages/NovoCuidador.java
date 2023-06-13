@@ -1,15 +1,12 @@
 
-package com.AnormaisEBruna.petshop.gui.views;
+package com.AnormaisEBruna.petshop.gui.components.pages;
 
+import com.AnormaisEBruna.petshop.gui.components.pages.Cuidador;
 import com.AnormaisEBruna.petshop.utils.LoadImage;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.ResourceLoader;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  *

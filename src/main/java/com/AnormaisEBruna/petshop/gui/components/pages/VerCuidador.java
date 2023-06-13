@@ -1,4 +1,6 @@
-package com.AnormaisEBruna.petshop.gui.views;
+package com.AnormaisEBruna.petshop.gui.components.pages;
+
+import com.AnormaisEBruna.petshop.gui.components.pages.Cuidador;
 
 import javax.swing.*;
 import java.awt.*;

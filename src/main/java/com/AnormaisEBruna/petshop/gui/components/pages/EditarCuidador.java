@@ -1,8 +1,7 @@
-package com.AnormaisEBruna.petshop.gui.views;
+package com.AnormaisEBruna.petshop.gui.components.pages;
 
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 /**

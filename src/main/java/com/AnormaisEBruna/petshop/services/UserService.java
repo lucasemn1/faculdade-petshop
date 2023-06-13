@@ -40,6 +40,23 @@ public class UserService {
         }
     }
 
+    public UserModel findByCredentials(String email, String password) throws SQLException {
+        try {
+            UserModel user = this.userRepository.findByEmail(email);
+
+            System.out.println(user);
+
+            if (!user.isValidPassword(password)) {
+                throw new Exception("Senha inválida");
+            }
+
+            return user;
+        } catch (Exception error) {
+            System.out.println(error);
+            throw new SQLException("Usuário não encontrado.");
+        }
+    }
+
     public List<UserModel> findAll() throws SQLException {
         try {
             Iterable<UserModel> usersResponse = this.userRepository.findAll();

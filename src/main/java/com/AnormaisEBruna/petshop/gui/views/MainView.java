@@ -1,41 +1,30 @@
-package com.AnormaisEBruna.petshop.gui.components.pages;
+package com.AnormaisEBruna.petshop.gui.views;
 
-import com.AnormaisEBruna.petshop.contracts.gui.GUIManager;
 import com.AnormaisEBruna.petshop.contracts.gui.UIScreen;
-import com.AnormaisEBruna.petshop.gui.views.*;
-
-
+import com.AnormaisEBruna.petshop.gui.components.pages.*;
+import org.springframework.stereotype.Component;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class InitialPage implements UIScreen {
+@Component
+public class MainView implements UIScreen {
     public JPanel mainPanel;
     private JButton buttonExit;
-    public JPanel panelSideBar; // tornar panelSideBar um membro da classe
-    String nomelogin="bruna"; // alterar para o nome de quem estiver utilizando de acordo com o login
-    public InitialPage(GUIManager application) {
-        initComponents(); // chamar o initComponents
+    public JPanel panelSideBar;
+    private String nomelogin="bruna";
+
+    public MainView() {
+        initComponents();
+
         this.buttonExit.addActionListener((event) -> {
             JOptionPane.showMessageDialog(null, "Voce saiu");
-            application.goToRoute("Painel de Login");
         });
-
     }
 
     @Override
     public JPanel getMainPanel() {
         return this.mainPanel;
-    }
-
-    @Override
-    public void startMainPanel() {
-        // Implementação pendente
-    }
-
-    @Override
-    public void finishMainPanel() {
-        // Implementação pendente
     }
 
     public void setconfpanel(JPanel p){
@@ -323,7 +312,6 @@ public class InitialPage implements UIScreen {
         getsidebar();
         setconfpanel(layoutcuidador);
     }
-
 
     // Variables declaration - do not modify
     private JButton buttonCuidador;

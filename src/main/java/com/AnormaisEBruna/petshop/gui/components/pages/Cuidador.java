@@ -1,6 +1,4 @@
-package com.AnormaisEBruna.petshop.gui.views;
-
-import com.AnormaisEBruna.petshop.gui.components.pages.InitialPage;
+package com.AnormaisEBruna.petshop.gui.components.pages;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -11,7 +9,6 @@ import java.io.IOException;
 public class Cuidador  extends  JPanel{
     NovoCuidador cadastropage = new NovoCuidador();
     EditarCuidador editpage = new EditarCuidador();
-
 
     Object nome,email,endereco,telefone,nomeDoDono,emailDoDono,endereçoDoDono,telefoneDoDono;
 

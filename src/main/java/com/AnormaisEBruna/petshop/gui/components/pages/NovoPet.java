@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.AnormaisEBruna.petshop.gui.views;
+package com.AnormaisEBruna.petshop.gui.components.pages;
 
 import javax.swing.*;
-import java.lang.reflect.Array;
-import java.util.List;
 
 /**
  *
