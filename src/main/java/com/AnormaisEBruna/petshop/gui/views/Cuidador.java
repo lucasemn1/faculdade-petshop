@@ -13,7 +13,7 @@ public class Cuidador  extends  JPanel{
     EditarCuidador editpage = new EditarCuidador();
 
 
-    Object nome,email,endereco,telefone,nomeDoDono;
+    Object nome,email,endereco,telefone,nomeDoDono,emailDoDono,endereçoDoDono,telefoneDoDono;
 
 
     /**
@@ -189,12 +189,14 @@ public class Cuidador  extends  JPanel{
     }
 
     private void visualizarButtonActionPerformed(ActionEvent evt) throws IOException {
-
         int linha;
         linha = tabelaCuidadores.getSelectedRow();
         if(tabelaCuidadores.getSelectedRow() != -1){
             nomeDoDono= tabelaCuidadores.getValueAt(linha,1);
-            VerCuidador verpage = new VerCuidador((String) nomeDoDono);
+            emailDoDono= tabelaCuidadores.getValueAt(linha,2);
+            endereçoDoDono= tabelaCuidadores.getValueAt(linha,3);
+            telefoneDoDono= tabelaCuidadores.getValueAt(linha,4);
+            VerCuidador verpage = new VerCuidador((String) nomeDoDono, (String) emailDoDono, (String) endereçoDoDono, (String) telefoneDoDono);
             cuidadorPanel.removeAll();
             setconfpanel(verpage);
         }else{
