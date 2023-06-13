@@ -87,7 +87,7 @@ public class TiposDeServiço extends JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Tipos de Tipos");
+        jLabel1.setText("Tipos de Serviços");
 
         jFormattedTextField1.setText("Serviços");
 
