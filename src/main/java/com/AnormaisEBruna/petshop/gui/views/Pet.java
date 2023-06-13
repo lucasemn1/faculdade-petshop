@@ -29,7 +29,7 @@ public class Pet extends JPanel {
     List<String> pets = new ArrayList<>(); // arraypet
     List<String> cuidadores = new ArrayList<>(); // array de nomes
 
-    String guardarnomecuidador,guardarnomepet,guardarnomeraça; // informações da tabela
+    String guardarnomecuidador; // informações da tabela
 
     int linha;
 
@@ -90,12 +90,10 @@ public class Pet extends JPanel {
         contador++;
     }
     public void refreshtable(){
-
         DefaultTableModel tabelaPets = (DefaultTableModel)this.tabelaPets.getModel();
         Object[] dados = {"ID",nomepet,guardarnomecuidador,raçapet};
         pets.add(nomepet);
         raça.add(raçapet);
-        contador++;
 
         tabelaPets.addRow(dados);
     }
@@ -221,8 +219,6 @@ public class Pet extends JPanel {
         }else{
             JOptionPane.showMessageDialog(null,"Selecione um pet para editar");
         }
-
-
     }
 
     private void ViewPetActionPerformed(java.awt.event.ActionEvent evt) {

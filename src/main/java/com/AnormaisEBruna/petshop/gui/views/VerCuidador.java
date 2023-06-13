@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class VerCuidador extends javax.swing.JPanel {
-    String nomedocuidador;
+    String nomedocuidador,emaildocuidador,endereçodocuidado,telefonedocuidador;
 
 
     public void setconfpanel(JPanel p){
@@ -16,7 +16,10 @@ public class VerCuidador extends javax.swing.JPanel {
         cuidadorViewPanel.revalidate();
         cuidadorViewPanel.repaint();
     }
-    public VerCuidador(String nomedocuidador) throws IOException {
+    public VerCuidador(String nomedocuidador,String emaildocuidador,String endereçodocuidado, String telefonedocuidador) throws IOException {
+        this.emaildocuidador=emaildocuidador;
+        this.endereçodocuidado=endereçodocuidado;
+        this.telefonedocuidador=telefonedocuidador;
         this.nomedocuidador=nomedocuidador;
         initComponents();
 
@@ -75,7 +78,8 @@ public class VerCuidador extends javax.swing.JPanel {
         }
 
         labelNomeDoCuidador.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelNomeDoCuidador.setText(nomedocuidador.toUpperCase());  //
+        labelNomeDoCuidador.setText("Cuidador = "+nomedocuidador.toUpperCase());  //
+
 
         sairButton.setText("Voltar");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +164,11 @@ public class VerCuidador extends javax.swing.JPanel {
     private void sairButtonActionPerformed(ActionEvent evt) throws IOException {
         Cuidador layoutCuidador = new Cuidador();
         cuidadorViewPanel.removeAll();
+        layoutCuidador.setNome(nomedocuidador);
+        layoutCuidador.setEmail(emaildocuidador);
+        layoutCuidador.setEndereco(endereçodocuidado);
+        layoutCuidador.setTelefone(telefonedocuidador);
+        layoutCuidador.refreshtable();
         setconfpanel(layoutCuidador);
     }
 
