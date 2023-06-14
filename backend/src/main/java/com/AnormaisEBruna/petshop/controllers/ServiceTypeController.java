@@ -1,6 +1,7 @@
 package com.AnormaisEBruna.petshop.controllers;
 
 import com.AnormaisEBruna.petshop.models.ServiceTypeModel;
+import com.AnormaisEBruna.petshop.seeders.ServiceTypeSeeder;
 import com.AnormaisEBruna.petshop.services.ServiceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,9 +16,13 @@ public class ServiceTypeController {
     @Autowired
     private ServiceTypeService serviceTypeService;
 
+    @Autowired
+    private ServiceTypeSeeder serviceTypeSeeder;
+
     @GetMapping("service-types")
     public ResponseEntity index() {
         try {
+            this.serviceTypeSeeder.run();
             ArrayList<ServiceTypeModel> serviceTypeModels = (ArrayList<ServiceTypeModel>) this.serviceTypeService.findAll();
 
             return ResponseEntity.ok(serviceTypeModels);

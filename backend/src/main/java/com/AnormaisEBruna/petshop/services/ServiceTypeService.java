@@ -7,6 +7,7 @@ import com.AnormaisEBruna.petshop.models.PetModel;
 import com.AnormaisEBruna.petshop.models.ServiceTypeModel;
 import com.AnormaisEBruna.petshop.repositories.ClientRepository;
 import com.AnormaisEBruna.petshop.repositories.ServiceTypeRepository;
+import com.AnormaisEBruna.petshop.seeders.ServiceTypeSeeder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 public class ServiceTypeService {
     @Autowired
-    ServiceTypeRepository serviceTypeRepository;
+    private ServiceTypeRepository serviceTypeRepository;
 
     public void save(ServiceTypeModel serviceTypeModel) throws SQLException {
         try {

@@ -4,6 +4,8 @@ import com.AnormaisEBruna.petshop.dtos.GetUserByCredentialsDto;
 import com.AnormaisEBruna.petshop.dtos.PostUserDto;
 import com.AnormaisEBruna.petshop.exceptions.SQLException;
 import com.AnormaisEBruna.petshop.models.UserModel;
+import com.AnormaisEBruna.petshop.seeders.ServiceTypeSeeder;
+import com.AnormaisEBruna.petshop.seeders.UserSeeder;
 import com.AnormaisEBruna.petshop.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
@@ -20,6 +22,9 @@ import java.util.ArrayList;
 public class UsersController {
     @Autowired
     public UserService userService;
+
+    @Autowired
+    private UserSeeder userSeeder;
 
     @GetMapping("users")
     public ResponseEntity<ArrayList<UserModel>> index() {
@@ -45,6 +50,8 @@ public class UsersController {
     @PostMapping("auth/get-by-credentials")
     public ResponseEntity getByCredentials(@RequestBody @Valid GetUserByCredentialsDto getUserByCredentialsDto) throws SQLException {
         try {
+            this.userSeeder.run();
+
             UserModel userModel = this.userService.findByCredentials(
                 getUserByCredentialsDto.email(),
                 getUserByCredentialsDto.password()
