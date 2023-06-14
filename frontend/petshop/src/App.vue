@@ -1,13 +1,6 @@
 <template>
-  <div class="container">
-    <side-bar-component />
-    <router-view />
-  </div>
+  <router-view />
 </template>
-
-<script lang="js" setup>
-import SideBarComponent from './components/SideBarComponent.vue';
-</script>
 
 <style lang="scss">
 * {

@@ -2,21 +2,49 @@
   <div class="container-login">
     <div class="side-left">
       <h2>Bem-Vindo!</h2>
-      <div class="input-container">
-        <label for="email">Email</label>
-        <input name="email" type="text" />
-      </div>
-      <div class="input-container">
-        <label for="senha">Senha</label>
-        <input name="senha" type="text" />
-      </div>
-      <button class="btn-send">Regsitrar</button>
+      <form @submit.prevent="handleSubmit">
+        <div class="input-container">
+          <label for="email">Email</label>
+          <input name="email" type="text" v-model="form.email" />
+        </div>
+        <div class="input-container">
+          <label for="senha">Senha</label>
+          <input name="senha" type="text" v-model="form.password" />
+        </div>
+        <button type="submit" class="btn-send">Entrar</button>
+      </form>
     </div>
+
     <div class="side-right">
       <img src="images/login-image.png" alt="imagem login" />
     </div>
   </div>
 </template>
+
+<script setup>
+import HttpClient from "@/config/HttpClient";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const form = ref({
+  email: "",
+  password: "",
+});
+
+const router = useRouter();
+
+function handleSubmit() {
+  new HttpClient()
+    .post("http://localhost:8080/auth/get-by-credentials", form.value)
+    .then((response) => {
+      router.push("/");
+      localStorage.setItem("userId", response.data.id);
+    })
+    .catch(() => {
+      alert("Erro ao fazer o login");
+    });
+}
+</script>
 
 <style lang="scss" scoped>
 .container-login {
