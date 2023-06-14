@@ -1,32 +1,50 @@
 <template>
   <div class="newUser-container">
     <h2>Adicionar Usuário</h2>
-    <div class="form-inputs">
+    <form class="form-inputs" @submit.prevent="handleSubmit">
       <div class="input">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" />
+        <input type="text" name="nome" v-model="form.name" />
       </div>
       <div class="input">
-        <label for="nome">E-mail</label>
-        <input type="text" name="nome" />
+        <label for="email">E-mail</label>
+        <input type="email" name="email" v-model="form.email" />
       </div>
       <div class="input">
-        <label for="nome">Senha</label>
-        <input type="text" name="nome" />
+        <label for="password">Senha</label>
+        <input type="password" name="password" v-model="form.password" />
       </div>
-      <button @click="addUserFunction">Registrar</button>
-    </div>
+      <button type="submit" @click="addUserFunction">Registrar</button>
+    </form>
   </div>
 </template>
 
 <script lang="js" setup>
-import { defineProps } from 'vue';
+import HttpClient from '@/config/HttpClient';
+import { defineProps, defineEmits, ref } from 'vue';
+
+const emits = defineEmits(["created"]);
 
 defineProps({
   addUserFunction: {
     type: Function
   }
 });
+
+const form = ref({
+  name: "",
+  email: "",
+  password: ""
+});
+
+function handleSubmit() {
+  new HttpClient().post("http://localhost:8080/user", form.value)
+    .then(() => {
+      emits("created");
+    }).catch(() => {
+      alert("Erro ao salvar o usuário");
+    });
+}
 </script>
 
 <style lang="scss" scoped>

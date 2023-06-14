@@ -9,18 +9,18 @@
         <span>ID</span>
         <span>Nome</span>
         <span>E-mail</span>
-        <span>Ações</span>
       </div>
       <div class="col" v-for="user in users" :key="user.id">
         <span>{{ user.id }}</span>
         <span>{{ user.name }}</span>
         <span>{{ user.email }}</span>
-        <div class="btn-actions">
-          <button @click="toggleDeleteUser">Excluir</button>
-        </div>
       </div>
     </section>
-    <NewUser v-show="isAddUser" :addUserFunction="addUser" />
+    <NewUser
+      v-show="isAddUser"
+      :addUserFunction="addUser"
+      @created="handleCreated"
+    />
   </div>
 </template>
 
@@ -30,17 +30,11 @@ import NewUser from '@/components/NewUser.vue';
 import HttpClient from '@/config/HttpClient';
 
 const isAddUser = ref(false);
-const isDeleteUser = ref(false);
 const users = ref([]);
 
 onMounted(() => {
   loadUsers();
 })
-
-function toggleDeleteUser() {
-  isDeleteUser.value = true
-  console.log("Excluindo...");
-}
 
 function addUser() {
   console.log("AddUser");
@@ -54,6 +48,11 @@ function loadUsers() {
   }).catch(() => {
     alert("Erro ao carregar os dados");
   });
+}
+
+function handleCreated() {
+  isAddUser.value = false;
+  loadUsers();
 }
 </script>
 

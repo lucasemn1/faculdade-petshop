@@ -21,4 +21,15 @@ export default class HttpClient {
       throw response;
     }
   }
+
+  async delete(url) {
+    try {
+      const response = await axios.delete(url);
+      return { status: response.status, data: response.data };
+    } catch (error) {
+      console.log(error);
+      const { response } = error;
+      throw response;
+    }
+  }
 }
