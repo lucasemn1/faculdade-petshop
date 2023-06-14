@@ -1,5 +1,6 @@
 package com.AnormaisEBruna.petshop.services;
 
+import ch.qos.logback.core.net.server.Client;
 import com.AnormaisEBruna.petshop.exceptions.SQLException;
 import com.AnormaisEBruna.petshop.models.ClientModel;
 import com.AnormaisEBruna.petshop.repositories.ClientRepository;
@@ -35,6 +36,15 @@ public class ClientService {
             return this.clientRepository.findById(id).get();
         } catch (Exception error) {
             throw new SQLException("Não foi possível buscar o cliente com o id " + id);
+        }
+    }
+
+    public void delete(ClientModel client) throws  SQLException {
+        try {
+            this.clientRepository.delete(client);
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+            throw new SQLException("Não foi possível deletar o cliente");
         }
     }
 }
