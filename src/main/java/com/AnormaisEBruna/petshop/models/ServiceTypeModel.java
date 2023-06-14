@@ -1,6 +1,5 @@
 package com.AnormaisEBruna.petshop.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -10,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "service_types")
 @JsonIgnoreProperties({"providedServices"})
-public class ServiceType {
+public class ServiceTypeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -19,8 +18,8 @@ public class ServiceType {
     @OneToMany(mappedBy = "serviceType", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ProvidedServiceModel> providedServices;
 
-    public static ServiceType newInstance(String name) {
-        ServiceType serviceType = new ServiceType();
+    public static ServiceTypeModel newInstance(String name) {
+        ServiceTypeModel serviceType = new ServiceTypeModel();
 
         serviceType.setName(name);
         serviceType.setProvidedServices(new ArrayList());

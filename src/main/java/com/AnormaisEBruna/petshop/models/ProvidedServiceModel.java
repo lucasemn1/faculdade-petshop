@@ -1,10 +1,7 @@
 package com.AnormaisEBruna.petshop.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "provided_services")
@@ -22,9 +19,9 @@ public class ProvidedServiceModel {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "service_types_id")
-    private ServiceType serviceType;
+    private ServiceTypeModel serviceType;
 
-    public static ProvidedServiceModel newInstance(String name, double price, PetModel pet, ServiceType serviceType) {
+    public static ProvidedServiceModel newInstance(String name, double price, PetModel pet, ServiceTypeModel serviceType) {
         ProvidedServiceModel providedService = new ProvidedServiceModel();
 
         providedService.setName(name);
@@ -67,11 +64,11 @@ public class ProvidedServiceModel {
         this.pet = pet;
     }
 
-    public ServiceType getServiceType() {
+    public ServiceTypeModel getServiceType() {
         return serviceType;
     }
 
-    public void setServiceType(ServiceType serviceType) {
+    public void setServiceType(ServiceTypeModel serviceType) {
         this.serviceType = serviceType;
     }
 

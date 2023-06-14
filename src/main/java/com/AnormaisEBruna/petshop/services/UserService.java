@@ -33,11 +33,9 @@ public class UserService {
 
     public UserModel findByCredentials(String email, String password) throws SQLException {
         try {
-            UserModel user = this.userRepository.findByEmail(email);
+            UserModel user = this.userRepository.findByEmail(email).get(0);
 
-            System.out.println(user);
-
-            if (user.getPassword() != password) {
+            if (!user.getPassword().equals(password)) {
                 throw new Exception("Senha inválida");
             }
 

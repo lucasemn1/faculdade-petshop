@@ -1,5 +1,6 @@
 package com.AnormaisEBruna.petshop.controllers;
 
+import com.AnormaisEBruna.petshop.dtos.GetUserByCredentialsDto;
 import com.AnormaisEBruna.petshop.dtos.PostUserDto;
 import com.AnormaisEBruna.petshop.exceptions.SQLException;
 import com.AnormaisEBruna.petshop.interceptors.AuthInterceptor;
@@ -14,12 +15,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.ArrayList;
 
 @RestController
-public class UsersController implements WebMvcConfigurer {
+public class UsersController {
     @Autowired
     public UserService userService;
 
@@ -43,4 +42,19 @@ public class UsersController implements WebMvcConfigurer {
 
         return ResponseEntity.ok(userModel);
     }
+
+    @PostMapping("auth/get-by-credentials")
+    public ResponseEntity getByCredentials(@RequestBody @Valid GetUserByCredentialsDto getUserByCredentialsDto) throws SQLException {
+        try {
+            UserModel userModel = this.userService.findByCredentials(
+                getUserByCredentialsDto.email(),
+                getUserByCredentialsDto.password()
+            );
+
+            return ResponseEntity.ok(userModel);
+        } catch (SQLException error) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

@@ -12,16 +12,18 @@ public class SaleModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private float price;
+    private String description;
     private long timestamp;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id", referencedColumnName = "id")
     private UserModel user;
 
-    public static SaleModel newInstance(float price, UserModel user) {
+    public static SaleModel newInstance(float price, String description, UserModel user) {
         SaleModel saleModel = new SaleModel();
 
         saleModel.setPrice(price);
+        saleModel.setDescription(description);
         saleModel.setUser(user);
 
         return saleModel;
@@ -33,6 +35,14 @@ public class SaleModel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public float getPrice() {

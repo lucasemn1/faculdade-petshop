@@ -4,6 +4,8 @@ import com.AnormaisEBruna.petshop.models.UserModel;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface UserRepository extends CrudRepository<UserModel, Integer> {
-    UserModel findByEmail(String email);
+    List<UserModel> findByEmail(String email);
 }
