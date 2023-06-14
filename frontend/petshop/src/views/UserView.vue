@@ -6,15 +6,15 @@
     </div>
     <section class="table" v-show="isAddUser == false">
       <div class="title">
+        <span>ID</span>
         <span>Nome</span>
         <span>E-mail</span>
-        <span>Útimo login</span>
         <span>Ações</span>
       </div>
-      <div class="col">
-        <span>First column</span>
-        <span>Middle column</span>
-        <span>Last column</span>
+      <div class="col" v-for="user in users" :key="user.id">
+        <span>{{ user.id }}</span>
+        <span>{{ user.name }}</span>
+        <span>{{ user.email }}</span>
         <div class="btn-actions">
           <button @click="toggleDeleteUser">Excluir</button>
         </div>
@@ -25,12 +25,17 @@
 </template>
 
 <script lang="js" setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import NewUser from '@/components/NewUser.vue';
+import HttpClient from '@/config/HttpClient';
 
 const isAddUser = ref(false);
 const isDeleteUser = ref(false);
+const users = ref([]);
 
+onMounted(() => {
+  loadUsers();
+})
 
 function toggleDeleteUser() {
   isDeleteUser.value = true
@@ -39,6 +44,16 @@ function toggleDeleteUser() {
 
 function addUser() {
   console.log("AddUser");
+}
+
+function loadUsers() {
+  new HttpClient()
+  .get("http://localhost:8080/users")
+  .then((response) => {
+    users.value = response.data;
+  }).catch(() => {
+    alert("Erro ao carregar os dados");
+  });
 }
 </script>
 

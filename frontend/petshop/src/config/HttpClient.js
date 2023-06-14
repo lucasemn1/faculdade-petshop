@@ -16,6 +16,7 @@ export default class HttpClient {
       const response = await axios.post(url, data);
       return { status: response.status, data: response.data };
     } catch (error) {
+      console.log(error);
       const { response } = error;
       throw response;
     }
