@@ -41,4 +41,12 @@ public class ServiceTypeService {
             throw new SQLException("Não foi possível buscar os tipos de serviço.");
         }
     }
+
+    public ServiceTypeModel findById(Integer id) throws SQLException {
+        try {
+            return this.serviceTypeRepository.findById(id).get();
+        } catch (Exception error) {
+            throw new SQLException("Não foi possível buscar o cliente com o id " + id);
+        }
+    }
 }

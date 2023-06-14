@@ -15,7 +15,7 @@ public class SaleModel {
     private String description;
     private long timestamp;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "users_id", referencedColumnName = "id")
     private UserModel user;
 

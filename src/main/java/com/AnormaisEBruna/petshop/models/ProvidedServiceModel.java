@@ -21,13 +21,19 @@ public class ProvidedServiceModel {
     @JoinColumn(name = "service_types_id")
     private ServiceTypeModel serviceType;
 
-    public static ProvidedServiceModel newInstance(String name, double price, PetModel pet, ServiceTypeModel serviceType) {
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "users_id", referencedColumnName = "id")
+    private UserModel user;
+
+
+    public static ProvidedServiceModel newInstance(String name, double price, PetModel pet, ServiceTypeModel serviceType, UserModel user) {
         ProvidedServiceModel providedService = new ProvidedServiceModel();
 
         providedService.setName(name);
         providedService.setPrice(price);
         providedService.setPet(pet);
         providedService.setServiceType(serviceType);
+        providedService.setUser(user);
 
         return providedService;
     }
@@ -70,6 +76,14 @@ public class ProvidedServiceModel {
 
     public void setServiceType(ServiceTypeModel serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public UserModel getUser() {
+        return user;
+    }
+
+    public void setUser(UserModel user) {
+        this.user = user;
     }
 
     @Override
